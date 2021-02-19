@@ -1,0 +1,46 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col text-center">
+        <div class="st-page-title">
+            <h4><i class="fas fa-book-open"></i>&nbsp;Bible Versions</h4>
+        </div>
+
+    </div>
+    <div class="row col st-table">
+        <div>
+            <small>By default only English, Hindi & Gujarati bibles are shown, if you want to see all versions please contact
+                Sherebiah Tisbi @<b>sherebiahtishbi@gmail.com</b></small>
+        </div>
+        <input class="form-control" placeholder="type here to search a version" id="txtSearch">
+    </div>
+    <div class="row col st-table">
+
+        <table class="table table-striped" id="tblVersion">
+            <thead>
+                <th width="10%" class="text-center">
+                    <i class="fas fa-check-square"></i>&nbsp;&nbsp;Default
+                </th>
+                <th width="90%">Version Name</th>
+            </thead>
+            <tbody>
+                <% versions.forEach(version=>{ %>
+                    <% if (['English','Gujarati','Hindi'].indexOf(version.language.name) >=0 ) { %>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" class="form-control">
+                            </td>
+                            <td>
+                                <a href="/bible/books/<%= version.id %>">
+                                    <%= version.name %>
+                                </a>
+                                <input type="hidden" value="<%= version.id%>">
+                            </td>
+                        </tr>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/versionlist.js"></script>
+<%- include('./../footer.ejs') %>

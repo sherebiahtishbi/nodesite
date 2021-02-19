@@ -1,0 +1,48 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col">
+        <div class="st-page-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Sermons</h4>
+        </div>
+    </div>
+    <div class="row col text-center">
+        <% for(index=65; index<=90; index++) { %>
+            <a href="/audio/speakers/<%= String.fromCharCode(index)%>" class="st-alphabet-link">
+                <%= String.fromCharCode(index)%>
+            </a>
+        <% } %>
+    </div>
+    <div class="row col st-table st-sermons">
+        <div class="st-speakerlist">
+            <h5>Speakers</h5>
+            <div>
+                <input id="txtSearch" type="text" class="form-control" placeholder="Search">
+            </div>
+            <div>
+                <% if (speakers != undefined && speakers.length > 0) { %>
+                    <table id="tblSpeakers">
+                        <tbody>
+                            <% speakers.forEach(speaker=>{ %>
+                                <tr class='st-speaker-item' >
+                                    <td data-href="<%= speaker.url %>">
+                                        <!-- <a href="<%= speaker.url %>"><%= speaker.name %></a> -->
+                                        <%= speaker.name %>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <div>
+                        <h4>No Data!</h4>                        
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <!-- <div class="st-sermonlist">
+            <h5>Sermons</h5>
+        </div> -->
+    </div>
+</div>
+<script src="./../../js/audiolist.js"></script>
+<%- include('./../footer.ejs') %>

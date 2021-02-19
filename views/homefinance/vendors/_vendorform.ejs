@@ -1,0 +1,31 @@
+<div class="form-group">
+    <label for="vendordname">Vendor name</label>
+    <input type="text" name="vendorname" class="form-control" placeholder="Vendord name"
+        value="<%= vendor.vendorname %>">
+</div>
+<div class="form-group">
+    <div id="divCheck" class="form-check">
+        <% if (vendor.trackinbillpay==true) { %>
+            <input type="checkbox" name="trackinbillpay" class="form-check-input" checked>
+            <%} else {%>
+                <input type="checkbox" name="trackinbillpay" class="form-check-input">
+                <%}%>
+                    <label for="trackinbillpay" class="form-check-label">Track in Billpay</label>
+    </div>
+</div>
+<div class="form-group">
+    <label for="displayorder">Display Order</label>
+    <input type="text" name="displayorder" class="form-control" placeholder="Display order"
+        value="<%= vendor.displayorder %>">
+</div>
+<div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea type="text" name="comments" class="form-control" rows="5"
+        placeholder="Additional details"><%=vendor.comments%></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+    &nbsp;&nbsp;
+    <a href="/finance/billpay" role="button" class="btn st-btn-primary"><i class="fas fa-cancel"></i>&nbsp;Cancel</a>
+
+</div>

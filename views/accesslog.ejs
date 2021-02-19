@@ -1,0 +1,47 @@
+<%- include('trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Access Log</h4>
+            </div>
+        </div>
+        <div class="row col st-table st-data-filter form-inline st-div-spacebetween">
+            <!-- <div class="st-div-spacebetween"> -->
+            <div>
+                <select name="datafilter" id="ddfilter" class="form-control">
+                    <option value='today' selected>Today</option>
+                    <option value='yday'>Yesterday</option>
+                    <option value='thismonth'>This month</option>
+                    <option value='lastmonth'>Last Month</option>
+                    <option value='thisyear'>This Year</option>
+                    <option value='lastyear'>Last Year</option>
+                </select>
+                <input id="txtSdate" type="text" class="form-control" placeholder="Start Date">
+                <input id="txtEdate" type="text" class="form-control" placeholder="End Date">
+                <button id="btnGo" role="button" class="btn st-btn-primary">Go</button>
+            </div>
+            <div>
+                <input type="text" id="txtLogSearch" class="form-control" name="search" placeholder="search logs">
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="row col st-table">
+            <table class="table table-striped" id="tblLogs">
+                <thead>
+                    <th width="30%">
+                        Page/Module
+                    </th>
+                    <th width="20%">
+                        Device
+                    </th>
+                    <th width="50%" class="st-logdate">
+                        Time of access
+                    </th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/accesslog.js"></script>
+    <%- include('footer.ejs') %>

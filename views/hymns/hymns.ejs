@@ -1,0 +1,73 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col">
+        <div class="st-page-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Hymns</h4>
+        </div>
+    </div>
+    <div class="row col st-table st-page-top-buttons">
+        <a href="/hymns/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Add Hymn</a>
+        &nbsp;&nbsp;
+        <a href="/hymns/author/add" role="button" class="btn st-btn-primary"><i class="fas fa-user-plus"></i>&nbsp;Add
+            Author</a>
+        &nbsp;&nbsp;
+        <a href="/hymns/authors" role="button" class="btn st-btn-primary"><i class="fas fa-users"></i>&nbsp;Show all
+            Authors</a>
+    </div>
+    <div class="row col st-table">
+        <input type="text" id="txtHymnSearch" class="form-control" name="search" placeholder="type here to search a hymn">
+    </div>
+    <div class="row col st-table">
+        <input type="text" value="<%= sortorder %>" hidden>
+        <table class="table table-striped" id="tblHymns">
+            <thead>
+                <th width="50%">
+                    <a href="/hymns/sort/title/<%= sortorder %>">Title</a>
+                </th>
+                <th width="20%">
+                    <a href="/hymns/sort/author/<%= sortorder %>">Author</a>
+                </th>
+                <th width="15%">
+                    <a href="/hymns/sort/sungdate/<%= sortorder %>">Last Sung</a>
+                </th>
+                <th width="5%">
+                    <a href="/hymns/sort/sungcount/<%= sortorder %>">Count</a>
+                </th>
+                <th width="10%" class="text-center">Action</th>
+            </thead>
+            <tbody>
+                <% hymns.forEach(hymn => {%>
+                <tr>
+                    <td>
+                        <a href="/hymns/show/<%= hymn.id %>"><%= hymn.title %></a>
+                    </td>
+                    <td>
+                        <% if (hymn.author != 'Unknown') { %>
+                            <a href="/hymns/author/showbyname/<%= hymn.author %>"><%= hymn.author %></a>
+                        <% } else { %>
+                            <%= hymn.author %>
+                        <% } %>
+                    </td>
+                    <% if (hymn.lastSungDate != undefined ) {%>
+                        <td><%= hymn.lastSungDate.toLocaleDateString() %></td>
+                    <% } else { %>
+                        <td>Never</td>
+                    <% } %>
+                    <% if (hymn.sungCount != undefined ) {%>
+                        <td><%= hymn.sungCount %></td>
+                    <% } else { %>
+                        <td>0</td>
+                    <% } %>
+                    <td class="text-center">
+                        <a href="/hymns/edit/<%= hymn.id %>"><i class="fas fa-edit"></i></a>
+                        &nbsp;
+                        <a href="/hymns/show/<%= hymn.id %>"><i class="fas fa-tv"></i></a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/hymnlist.js"></script>
+<%- include('./../footer.ejs') %>

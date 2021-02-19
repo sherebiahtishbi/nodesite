@@ -1,0 +1,69 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col text-center">
+        <div class="st-page-title">
+            <% if (scripture.next != undefined && scripture.next.number == 1) { %>
+                <h4><i class="fas fa-book-open"></i>&nbsp;Introduction of the book of <%= scripture.reference%></h4>
+            <% } else { %>
+                <h4><i class="fas fa-book-open"></i>&nbsp;<%= scripture.reference%></h4>
+            <% } %>
+        </div>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/bible"><%= version.name %></a></li>
+            <li class="breadcrumb-item"><a href="/bible/books/<%=version.id %>"><%= book.name %></a></li>
+            <% if (scripture.next != undefined && scripture.next.number == 1) { %>
+                <li class="breadcrumb-item"><a href="/bible/chapters/<%=version.id%>/<%=book.id%>">Introduction</a></li>
+            <% } else { %>
+                <li class="breadcrumb-item"><a href="/bible/chapters/<%=version.id%>/<%=book.id%>"><%= scripture.number%></a></li>
+            <% } %>
+            <!-- <li class="breadcrumb-item">Chapter&nbsp;&nbsp;<%= scripture.reference %></li> -->
+        </ol>
+    </nav>
+    <div class="row col text-center scripture-controls st-table">
+        <% if (scripture.previous != undefined) { %>
+            <a href="/bible/text/<%=version.id%>/<%=book.id%>/<%=scripture.previous.id%>" role="button" class="btn st-btn-primary col-md-2">
+                <i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;Chapter&nbsp;&nbsp;<%=scripture.previous.number%>
+            </a>
+        <% } %>
+        <% if (scripture.next != undefined) { %>
+            <a href="/bible/text/<%=version.id%>/<%=book.id%>/<%=scripture.next.id%>" role="button" class="btn st-btn-primary col-md-2">
+                Chapter&nbsp;&nbsp;<%=scripture.next.number%>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i>
+            </a>
+        <% } %>
+    </div>
+    <div class="st-raw-content">
+        <%- scripture.content%>
+    </div>
+    <input id='hidVersion' type="hidden" name="versionid" value="<%=version.id%>">
+    <input id='hidBook' type="hidden" name="bookid" value="<%=book.id%>">
+    <input id='hidChapter' type="hidden" name="chapterid" value="<%=scripture.id%>">
+    <input id='existingNote' type="hidden">
+    <div id="divText" class="row col st-table st-scripture-content">
+        <table id="tblScripture" class="table">
+        </table>
+    </div>
+    <div class="row col text-center scripture-controls st-table">
+        <% if (scripture.previous != undefined) { %>
+        <a href="/bible/text/<%=version.id%>/<%=book.id%>/<%=scripture.previous.id%>" role="button"
+            class="btn st-btn-primary col-md-2">
+            <i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;Chapter&nbsp;&nbsp;<%=scripture.previous.number%>
+        </a>
+        <% } %>
+        <% if (scripture.next != undefined) { %>
+        <a href="/bible/text/<%=version.id%>/<%=book.id%>/<%=scripture.next.id%>" role="button"
+            class="btn st-btn-primary col-md-2">
+            Chapter&nbsp;&nbsp;<%=scripture.next.number%>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i>
+        </a>
+        <% } %>
+    </div>
+    <div class="row col st-scripture-copyright text-center">
+        <%- scripture.copyright%>
+    </div>
+</div>
+
+<script src="/js/scripturepage.js"></script>
+<script src="http://cdn.scripture.api.bible/fums/fumsv2.min.js"></script>
+
+<%- include('./../footer.ejs') %>

@@ -1,0 +1,38 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col text-center st-page-title">
+        <h4><i class="fas fa-book-open"></i>&nbsp;Books</h4>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/bible"><%= versiondetail.name %></a></li>
+            <li class="breadcrumb-item">Books</li>
+        </ol>
+    </nav>
+    <div class="row col st-table">
+        <input type="text" value="<%= versiondetail.id %>" hidden>
+        <table class="table table-striped">
+            <thead>
+                <th width="20%">Name</th>
+                <th width="50%">Description</th>
+            </thead>
+            <tbody>
+                <% books.forEach(book =>{ %>
+                <tr>
+                    <td>
+                        <a href="/bible/chapters/<%=versiondetail.id%>/<%=book.id%>">
+                            <%= book.name %>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/bible/chapters/<%=versiondetail.id%>/<%=book.id%>">
+                            <%= book.nameLong %>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('./../footer.ejs') %>

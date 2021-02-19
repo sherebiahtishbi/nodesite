@@ -1,0 +1,39 @@
+<div class="form-group">
+    <label for="name">Category Name</label>
+    <input type="text" name="name" class="form-control" placeholder="Category name"
+        value="<%= category.categoryName %>">
+</div>
+<div class="form-group">
+    <label for="type">Type</label>
+    <select name="type" id="ddType" class="form-control">
+        <% if (category.categorytype=="Income" ) { %>
+            <option value="Income" selected>
+                Income
+            </option>
+            <% } else { %>
+                <option value="Income">
+                    Income
+                </option>
+                <% } %>
+                    <% if (category.categorytype=="Expense" ) { %>
+                        <option value="Expense" selected>
+                            Expense
+                        </option>
+                        <% } else { %>
+                            <option value="Expense">
+                                Expense
+                            </option>
+                            <% } %>
+
+    </select>
+</div>
+<div class="form-group">
+    <label for="comment">Comments</label>
+    <textarea type="text" name="comment" class="form-control" rows="5"
+        placeholder="Additional details"><%=category.comment%></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+    &nbsp;&nbsp;
+    <a href="/finance/expense/category" role="button" class="btn st-btn-primary">Cancel</a>
+</div>

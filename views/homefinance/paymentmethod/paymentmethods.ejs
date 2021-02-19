@@ -1,0 +1,57 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Payment Methods</h4>
+            </div>
+        </div>
+        <div class="row col">
+            <a href="/finance/paymentmethod/add" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-plus"></i>&nbsp;Add
+                Payment Method</a>
+            &nbsp;&nbsp;
+            <a href="/finance/billpay" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-money-check-alt"></i>&nbsp;Billpay Home</a>
+        </div>
+        <div class="row col st-table">
+            <input type="text" id="txtCategorySearch" class="form-control" name="search"
+                placeholder="type here to search the categories">
+        </div>
+        <div class="row col st-table">
+            <table id="tblAuthors" class="table table-striped">
+                <thead>
+                    <th width="5%" class="st-th-center"><i class=" fas fa-trash-alt"></i></th>
+                    <th width="45%">
+                        <div>Name</div>
+                        <div>
+                            <small>Click on payment method name to edit its details.</small>
+                        </div>
+                    </th>
+                    <th width="50%">Comments / Additional Details</th>
+                </thead>
+                <tbody>
+                    <% pmethods.forEach(pmethod=> {%>
+                        <tr>
+                            <td class="text-center">
+                                <!-- <a href="/finance/paymentmethod/delete/<%= pmethod.id %>" disabled> -->
+                                <i class="fas fa-trash-alt"></i>
+                                <!-- </a> -->
+                            </td>
+                            <td>
+                                <a href="/finance/paymentmethod/edit/<%=pmethod.id%>">
+                                    <%= pmethod.methodname %>
+                                </a>
+                            </td>
+                            <td>
+                                <div class="st-exp-cat-comment">
+                                    <%= pmethod.comments %>
+                                </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <script src="/js/authorlist.js"></script> -->
+    <%- include('./../../footer.ejs') %>

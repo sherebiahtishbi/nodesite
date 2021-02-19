@@ -1,0 +1,53 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col st-page-top-panel">
+        <div class="st-page-title st-sermon-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Sermons</h4>
+        </div>
+        <div class="st-page-top-buttons">
+            <a href="/audio/speakers/<%=sermons.name.substring(0,1)%>" role="button" class="btn st-btn-primary">Back to Speakers</a>
+        </div>
+    </div>
+    <div class="row col st-table st-sermons">
+        <div class="st-speakerlist">
+            <h5><b><%=sermons.name%> ( <%= sermons.sermons.length %> )</b></h5>
+            <div class="st-sermon-search">
+                <input id="txtSearch" type="text" class="form-control" placeholder="Search">
+            </div>
+            <div>
+                <% if (sermons.sermons != undefined && sermons.sermons.length > 0) { %>
+                <table id="tblSermons" class="table table-striped">
+                    <tbody>
+                        <% sermons.sermons.forEach(sermon=>{ %>
+                        <tr>
+                            <td>
+                                <div class="st-sermon-item-title">
+                                    <div class="st-sermon-title"><%= sermon.title %></div>
+                                    <div class="st-sermon-audio-control">
+                                        <!-- <audio src="<%= sermon.download%>" controls></audio> -->
+                                        <audio src="<%= sermon.download%>" type="audio/mp3" controls></audio>
+                                        <!-- <audio crossorigin="anonymous" src="<%= sermon.download%>" type="audio/mpeg" controls></audio> -->
+                                    </div>
+                                </div>
+                                <div class="st-sermon-item-description">
+                                    <%=sermon.description %>
+                                </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                <div>
+                    <h4>No Data!</h4>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <!-- <div class="st-sermonlist">
+            <h5>Sermons</h5>
+        </div> -->
+    </div>
+</div>
+<script src="./../../js/sermonlist.js"></script>
+<%- include('./../footer.ejs') %>

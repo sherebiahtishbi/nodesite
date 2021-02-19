@@ -1,0 +1,71 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-money-check-alt"></i>&nbsp;Incomes</h4>
+            </div>
+        </div>
+        <div class="row col">
+            <a href="/finance/income/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Add
+                Income</a>
+            &nbsp;&nbsp;
+            <a href="/finance/billpay" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-money-check-alt"></i>&nbsp;Billpay
+                Home</a>
+        </div>
+        <div class="row col st-table">
+            <input type="text" id="txtCategorySearch" class="form-control" name="search"
+                placeholder="type here to search the income">
+        </div>
+        <div class="row col st-table">
+            <table id="tblIncomes" class="table table-striped">
+                <thead>
+                    <th width="5%" class="st-th-center"><i class=" fas fa-trash-alt"></i></th>
+                    <th width="15%">
+                        <div>Month</div>
+                        <div>
+                            <small>Click on month name to edit its details.</small>
+                        </div>
+                    </th>
+                    <th width="15%">
+                        <div>Year</div>
+                    </th>
+                    <th width="15%" class="st-th-right">Amount ($)</th>
+                    <th width="50%">Comments / Additional Details</th>
+                </thead>
+                <tbody>
+                    <% incomes.forEach(income=> {%>
+                        <tr>
+                            <td class="text-center">
+                                <!-- <a href="/finance/paymentmethod/delete/" disabled> -->
+                                <i class="fas fa-trash-alt"></i>
+                                <!-- </a> -->
+                            </td>
+                            <td>
+                                <a href="/finance/income/edit/<%=income.id%>">
+                                    <% months.forEach(month=>{%>
+                                        <%if (month.monthno==income.incomemonth) { %>
+                                            <%= month.monthname %>
+                                                <% } %>
+                                                    <%})%>
+                                </a>
+                            </td>
+                            <td>
+                                <%= income.incomeyear %>
+                            </td>
+                            <td class="st-td-right">
+                                <%= income.incomeyear %>
+                            </td>
+                            <td>
+                                <div class="st-exp-cat-comment">
+                                    <%= income.comments %>
+                                </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <script src="/js/authorlist.js"></script> -->
+    <%- include('./../../footer.ejs') %> -->

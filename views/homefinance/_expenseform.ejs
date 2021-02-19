@@ -1,0 +1,54 @@
+<div class="form-group">
+    <label for="vendor">Vendor</label>
+    <input type="text" name="vendor" class="form-control" placeholder="Vendor name" value="<%= expense.vendor %>">
+</div>
+<div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="text" name="amount" class="form-control" placeholder="Amount" value="<%= expense.amount %>">
+</div>
+<div class="form-group">
+    <label for="paymethod">Payment Method</label>
+    <select name="paymethod" id="ddPaymethod" class="form-control">
+        <% pmethods.forEach(pmethod=> {%>
+            <% if (pmethod.id==expense.paymentmethod) { %>
+                <option value="<%=pmethod.id%>" selected>
+                    <%=pmethod.id%>
+                </option>
+                <% } else { %>
+                    <option value="<%=pmethod.id%>">
+                        <%=pmethod.methodname%>
+                    </option>
+                    <% } %>
+                        <% }) %>
+    </select>
+</div>
+<div class="form-group">
+    <label for="category">Expense Category</label>
+    <select name="expensecategory" id="ddexpCategory" class="form-control">
+        <% expcategories.forEach(expcategory=>{%>
+            <% if (expcategory.id==expense.category) { %>
+                <option value="<%=expcategory.id%>" selected>
+                    <%=expcategory.categoryName%>
+                </option>
+                <%} else { %>
+                    <option value="<%=expcategory.id%>">
+                        <%=expcategory.categoryName%>
+                    </option>
+                    <%}%>
+                        <%})%>
+    </select>
+</div>
+<div class="form-group">
+    <label for="dateofexpense">Date of Expense</label>
+    <input type="text" name="dateofexpense" class="form-control" placeholder="Date of Expense"
+        value="<%= expense.dateofexpense %>">
+</div>
+<div class="form-group">
+    <label for="comment">Comments</label>
+    <textarea type="text" name="comment" class="form-control" rows="5"
+        placeholder="Additional details"><%= expense.comments %></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button> &nbsp;&nbsp;
+    <a href="/finance/expense" role="button" class="btn st-btn-primary">Cancel</a>
+</div>

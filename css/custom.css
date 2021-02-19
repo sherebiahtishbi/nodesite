@@ -1,0 +1,1030 @@
+html { 
+    margin-left: calc(100vw - 100%); 
+}
+
+body {
+    background-color: whitesmoke;
+    color: #6b6f73 !important;
+    font-family: 'Oxygen', sans-serif;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+th {
+    color: #4e545a;
+}
+
+th.st-th-center, td.st-td-center {
+    text-align: center !important;
+}
+
+th.st-th-right, td.st-td-right {
+    text-align: right !important;
+}
+
+.st-td-comment {
+  /* padding: 1em 3em; */
+  /* border: 1px solid grey; */
+  position: relative;
+  /* border-top: 1px solid red;
+  border-right: 1px solid red; */
+}
+
+.st-td-comment::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 3.5px;
+  border-style: solid;
+  border-color: red red transparent transparent;
+}
+
+
+audio {
+    height: 2rem;
+}
+
+.st-navbar-border {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.st-card-row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.st-jumbotron {
+    margin-bottom: .1rem;
+    background-image: url('../resources/IMG_6588.JPG');
+    background-size: 300%;
+    background-position: center;
+    color: white;
+    border-radius: 0;
+}
+
+.st-unauthorized {
+    margin-top: 2rem;
+    padding: 4rem;
+    color:brown;
+}
+
+.st-lead {
+    font-weight: bold;
+}
+
+.st-btn-primary {
+    background-color: #507894;
+    color: whitesmoke;
+}
+
+.st-card {
+    margin-bottom: .2rem;
+    margin-top: .5rem;    
+}
+
+.st-card-title {
+    background-color: #507894;
+    color: whitesmoke;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    padding-left: .2rem;
+}
+
+.st-card-footer {
+    border-top: 0px;
+}
+
+.st-hymn {
+    color: teal;
+    font-weight: bold;
+}
+
+.st-bible {
+    color: brown;
+    font-weight: bold;
+}
+
+.st-page-footer {
+    margin-top: .5rem;
+    /* margin-bottom: .5rem; */
+    padding: 1rem;
+    /* background-color: #507894; */
+    /* color: white; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.st-page-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.st-form-top-buttons {
+    margin-bottom: 1rem;;
+}
+
+.st-table {
+    margin-top: .5rem;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;    
+}
+
+thead {
+    background-color: lightslategray;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+tbody {
+    color: #6b6f73 !important;
+}
+
+.st-stanza {
+    color: rgb(143, 143, 143);    
+    font-size: 3rem;
+    /* font-style: italic; */
+    white-space:pre-line;
+    width: 100%;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+.st-refrain {
+    color: darkgray;
+    font-size: 2.5rem;
+    font-style: italic;
+    white-space:pre-line;
+    width: 100%;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+.st-hymn {
+    background-color: rgb(46, 45, 48);
+    margin-left: 0px !important;
+}
+
+.st-hymn a {
+    padding-top: 2.5rem;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: normal;    
+}
+
+.st-hymn-author {
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.st-author {
+    margin: auto;
+    padding: 3rem;    
+}
+
+.st-author-view {
+    padding-top: 1rem;
+}
+
+.st-biography {
+    font-size: 1.5rem !important;
+    white-space: pre-line;
+}
+
+.st-biography-header {
+    font-size: 2rem;
+    font-weight: 700;    
+}
+
+button#btnCloseAuthor {
+    background-color: aliceblue;
+    border-radius: 5px;
+    line-height: .5;
+}
+
+/* .st-top-buttons {
+    margin-top: 1rem;
+} */
+
+.st-top-buttons a {
+    margin-right: .5rem;
+}
+
+
+/* .st-author-hide { display: none;}
+.st-author-show { display: block;} */
+
+.st-search{
+    margin-left: 10px;
+}
+
+.st-showhymn-body {
+    background-color: rgb(46, 45, 48) !important;
+    margin-bottom: 5rem;
+}
+
+.st-showhymn-footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.st-chapter-number {
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
+    float: right;
+    margin: .2rem;
+}
+
+.st-chapter-button {
+    width: 100%;
+}
+
+.st-chapter-intro {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.st-scripture-copyright {
+    border-top: 1px solid rgb(61, 61, 61);
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 1rem;
+    font-size: .75rem;
+    margin-top: 2rem;
+}
+
+.scripture-controls a {
+    margin-left: .25rem;
+    margin-right: .25rem;
+    margin-bottom: .25rem;
+}
+
+.st-scripture-reference {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.st-page-navbar {
+    background-color: transparent;
+    padding: 0rem;
+}
+
+/* Scrpture Styling */
+
+.st-scripture-content {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    /* text-align: justify; */
+}
+
+
+.st-scripture-content .mt1 {
+    font-weight: bolder;
+}
+
+.st-scripture-content .add {
+    font-style: italic;
+}
+
+.st-scripture-content .v {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #898e92;
+    padding-right: .5rem;
+}
+
+/* .st-scripture-content :-webkit-any(p.p) .v + .v::before {
+    content: '\A';
+    white-space: pre;
+} */
+
+.st-scripture-content .wj {
+    color: maroon;
+    font-style: italic;
+}
+
+.st-scripture-content .s, .d {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-style: italic;
+    padding-right: .5rem;
+    display: block;
+}
+
+.st-scripture-content .qs {
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.st-scripture-content .q, .q1 {
+    display: block;
+    /* content: '\a; */
+} 
+
+.st-scripture-content .q::before, .q1::before {
+    white-space: nowrap;
+}
+
+.st-scripture-content a {
+    font-size: .75rem;
+    margin-left: .2rem;
+    /* content: '\a; */
+} 
+
+
+
+.st-raw-content {
+    display: none;
+}
+
+.st-scripture-content table td {
+    padding: 0;
+    border: 0;
+    color: #6b6f73 !important;
+}
+
+.st-vcomment {
+    font-size: .7rem;
+}
+
+.st-vcomment:hover {
+    cursor: pointer;
+}
+
+
+.st-notes-hidden {
+    display: none;
+}
+
+.st-notes-shown {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.st-blockquote {
+    border-left: 3px solid rgb(209, 204, 181);
+    border-radius: 3px;
+    padding: .5rem;
+    /* font-size: .75rem; */
+    background-color: #e9ecef;
+    width: 95%;
+    margin-left: 1rem;
+    line-height: 1.5rem;
+    white-space: pre-line;
+}
+
+.st-note-heading { 
+    margin-left: 1rem;
+    font-size: .8rem;
+}
+
+.st-edit-note {
+    margin-right: .75rem;
+    color: rgb(209, 204, 181);
+}
+
+.st-edit-note:hover {
+    cursor: pointer;
+    color:rgb(211, 184, 65);
+}
+
+.st-meditation {
+    margin-bottom: 1rem;
+    /* border-top: 1px solid rgb(209, 204, 181); */
+}
+
+.st-meditation-header {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #e6e6e6;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: .25rem;
+}
+
+.st-meditation-body {
+    /* margin-bottom: 1rem; */
+    /* border-top: 1px solid #e6e6e6; */
+    /* background-color: rgb(209, 204, 181); */
+    /* padding-top: .5rem; */
+    /* margin-top: .20rem; */
+    white-space: pre-line;
+    line-height: 1.4rem;
+}
+
+.st-meditation-nodata {
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-items: center;
+}
+
+#divScriptureContent table {
+    width: 100%;
+
+}
+
+.st-leftbar {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    height: 100%;
+}
+
+.st-leftbar ul {
+    margin-left: 0;
+    padding-left: .3rem;
+    padding-top: .3rem;
+}
+
+
+.st-leftbar ul, li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.st-leftbar li {
+    padding: .2rem;
+}
+
+
+.st-leftbar li:hover {
+    cursor: pointer;
+    background-color: rgb(218, 218, 218);
+}
+
+.st-left-daterange {
+    border-top: 1px solid lightslategray;
+    margin-top: 1rem;
+}
+
+.st-left-daterange:hover {
+    background-color: #e6e6e6 !important;
+}
+
+.st-daterange-title {
+    font-size: .75rem;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+}
+
+.st-meditation-verseref {
+    border-top: 1px solid #e6e6e6;
+    padding-top: .5rem;
+}
+
+.st-meditation-verseref span {
+    font-size: .5rem;
+    padding-right: .3rem;
+}
+
+.st-meditation-edit {
+    display: inline;
+    /* margin-left: 1rem; */
+    font-size: .75rem;
+    color: #adadad;
+}
+
+.st-control-info {
+    font-size: .75rem;
+}
+
+
+.st-show {
+    display: block;
+}
+
+.st-hide {
+    display: none;
+}
+
+/* jQuery Override */
+.ui-datepicker th {
+    font-size: 1rem;
+    font-weight: normal;
+    background-color: lightgrey;
+}
+
+.st-alphabet-link {
+    padding: .35rem .35rem;
+    border: 1px solid rgb(91, 104, 117);
+    border-radius: 50%;
+    background-color: #d9e1e8;
+    margin: .25rem .25rem;
+    width: 2rem;
+    text-align: center;
+}
+
+.st-alphabet-link:hover  {
+    background-color: rgb(91, 104, 117);
+    color: whitesmoke;
+}
+
+.st-sermons {
+    margin-top: .5rem;
+    padding-top: .5rem;
+    display: flex;
+}
+
+.st-speakerlist {
+    flex: 1;
+    border: 1px solid lightgray;
+    padding: .5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.st-speakerlist h5,.st-sermonlist h5 {
+    background-color:rgb(224, 229, 234);
+    line-height: 3rem;
+    padding-left: .5rem;
+}
+
+.st-speaker-item {
+    padding-left: 1rem;
+    font-size: 2rem;
+}
+
+.st-speaker-item:hover {
+    cursor: pointer;
+    background-color: rgb(226, 229, 233);
+    color: lightslategray;    
+}
+
+.st-sermonlist {
+    flex: 3;
+    border: 1px solid lightgray;
+    margin-left: .5rem;
+    border-radius: 5px;    
+    padding: .5rem;
+    margin-bottom: 1rem;
+}
+
+.st-sermon-item-title {
+    font-weight: 500;
+    padding-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.st-sermon-title {
+    flex: 2;
+    /* font-weight: 600; */
+    font-size: 24px;
+}
+
+.st-sermon-audio-control {
+    flex: 1;
+    text-align: end;
+}
+
+.st-sermon-item-description {
+    font-size: .75rem;
+}
+
+.st-sermon-search {
+    margin-bottom: 1rem;
+}
+
+.st-page-top-buttons {
+    display: flex;
+}
+
+.st-page-top-panel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    padding-right: 0;
+}
+
+.st-top-panel-controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Miscellenous */
+.st-import {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+}
+
+
+/* .st-sermon-title { 
+    flex: 1;
+} */
+
+/* Articles */
+.st-main-content {
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+.st-main-content form {
+    flex: 1;
+}
+
+.st-articles-leftbar {
+    flex: 1;
+    border: 1px solid lightslategray;
+}
+
+.st-article-range {
+    padding-right: 1rem !important;
+}
+
+.st-article-list, .st-expense-list {
+    flex: 3;
+    /* border: 1px solid lightslategray; */
+    /* border-radius: 5px; */
+    margin-left: 1rem;
+}
+
+.st-articles-list, .st-expenses-list {
+    flex-direction: row;
+}
+
+.st-article-cell {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+}
+
+.st-article-cell a {
+    padding-left: .25rem;
+}
+
+.st-article-cell small {
+    padding-right: 1rem;
+}
+
+
+.st-article-header {
+    background-color: #e6e6e6;
+    border-bottom: 1px solid rgb(180, 189, 197);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.st-article-cell + .st-article-cell {
+    border-top: 1px solid lightslategray;
+}
+
+.st-article-preview {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    /* border-left: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid #ced4da; 
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;*/
+}
+
+.st-article-form {
+    margin-top: 1rem;
+}
+
+.tab-content {
+    background-color: white;
+}
+
+.tab-pane {
+    padding: 1rem;
+}
+
+/* Access Log*/
+
+.st-logdate {
+    text-align: right;
+}
+
+#tblLogs tbody tr:hover {
+    background-color: rgb(210, 217, 238);
+}
+
+.st-div-spacebetween {
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+/* Credentials */
+.st-site-comment {
+    font-size: .7rem;
+    margin-top: .5rem;
+}
+
+.st-password {
+    cursor: pointer;
+}
+
+/* Finance */
+.st-exp-cat-comment {
+    font-size: .8rem;
+    color: #919292 !important;
+    white-space:pre-line;
+    line-height: .8rem;
+}
+
+.st-data-filter {
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: #e8e9ea;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.st-space-right {
+    padding-right: 1rem;
+}
+
+#divCheck {
+    padding-left: 1.5rem;
+}
+
+#divYearMonth {
+    padding-left: .25rem;
+}
+
+#divYearMonth .form-group {
+    margin-right: 1rem;
+}
+
+#divFilters {
+    padding-right: 5rem;
+}
+
+#divDateRange {
+    padding-left: 5rem;
+    padding-right: 1rem;
+    padding-top: 0;
+}
+
+#divSdate, #divEdate {
+    padding-right: 1rem;
+}
+
+#btnFilter {
+    /* margin-top: 2rem; */
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-left: 1rem;
+}
+
+#divFilters, #divDateRange, #divSdate, #divEdate {
+    flex: 1;
+}
+
+#tblBillpay td, #tblIncome td {
+    padding: .25rem;
+}
+
+#divSearch, #divHighlight {
+    padding-left: .5rem;
+}
+
+#divSearch label, #divHighlight label {
+    padding-right: .5rem;
+}
+
+.st-lastyear-data {
+    font-size: .65rem;
+    text-align: end;
+}
+
+.st-td-center:hover  {
+    cursor: pointer;
+}
+
+.st-td-right:hover {
+    cursor: pointer;
+}
+
+/* .st-corner-marker {
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+  background: lightblue;
+} */
+
+.st-billpay-topbar {
+    background-color: #e8e9ea;
+    border-radius: .25rem;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.st-totals {
+    margin-top: 1rem;
+    /* padding-right: 1rem; */
+}
+
+.st-income {
+    display: inline;
+    padding: 1rem;
+    background-color: #ceefce;
+}
+
+.st-payment-notincluded {
+    color: #bbbbbb;
+}
+
+.st-payment-highlight {
+    background-color: #f7c0c0;
+    font-weight: bolder;
+}
+
+.st-income-highlight {
+    background-color: #ceefce;
+    font-weight: bolder;
+}
+
+.st-expense {
+    display: inline;
+    padding: 1rem;
+    background-color: #f7c0c0;
+}
+
+tr.st-footer-payment {
+    background-color:#f7c0c0 !important;
+}
+
+tr.st-footer-income {
+    background-color:#ceefce !important;
+}
+
+
+
+.popover-body {
+    white-space:pre-line;
+    /* line-height: .8rem; */
+}
+
+/*
+ .st-arrow {
+    color:#2c2f3196 !important;
+     color: white; 
+} 
+
+.popover.auto> .arrow:after {
+    border-top-color: #2c2f3196;
+    border-bottom-color: #2c2f3196;
+    border-left-color: #2c2f3196;
+    border-right-color: #2c2f3196;
+} */
+
+/* Media Queries */
+
+@media (max-width: 768px ) {
+    .st-jumbotron {
+        background-position: top;
+    }
+    .st-scripture-content {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        /* text-align: justify; */
+    }
+    .st-scripture-copyright {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1rem;
+        font-size: .75rem;
+        margin-top: 1.5rem;
+    }   
+
+    .st-author {
+        margin: auto;
+        padding: 1rem;    
+    }
+
+    .st-page-top-buttons {
+       flex-direction: column;
+    }
+
+    .st-biography {
+        font-size: 1rem;
+    }
+
+    .st-biography-header {
+        font-size: 1.5rem;
+        font-weight: 400;    
+    }
+
+    .st-leftbar li {
+        /* padding: .2rem; */
+        text-align: center;
+    }
+
+    .st-sermons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .st-sermonlist {
+        margin-left: 0;
+    }
+
+    .st-sermon-item-title {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .st-sermon-audio-control {
+        align-self: auto;
+        padding-top: 1rem;
+    }
+
+    audio {
+        width: 100%;
+        font-size: 1.3rem;
+    }
+    .st-main-content {
+        flex-direction: column;
+    }
+
+    .st-article-list {
+        margin-left: 0;
+    }
+
+    .form-control, .st-article-preview, .st-article-summary, .st-sermon-item-description {
+        font-size: 1.3rem;
+    }
+
+    .st-meditation-body>span {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    .st-top-panel-controls {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 991.98px) {  
+    .st-stanza {
+        color: darkgray;
+        font-size: 2em;
+        white-space:pre-line;
+        width: 100%;
+        line-height: normal;
+        margin-bottom: 1rem;
+    }
+
+    .st-refrain {
+        color: darkgray;
+        font-size: 1.6rem;
+        font-style: italic;
+        white-space:pre-line;
+        width: 100%;
+        line-height: normal;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1200px;
+}
+
+
+
+
+
+
+

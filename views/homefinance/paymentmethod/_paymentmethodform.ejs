@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label for="methodname">Name</label>
+    <input type="text" name="methodname" class="form-control" placeholder="Payment method name"
+        value="<%= paymethod.methodname %>">
+</div>
+<div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea type="text" name="comments" class="form-control" rows="5"
+        placeholder="Additional details"><%=paymethod.comments%></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="form-group">
+    <label for="authorname">Name</label>
+    <input 
+        type="text" 
+        name="authorname" 
+        class="form-control" 
+        placeholder="Author name" 
+        value="<%= author.name %>">
+</div>
+<div class="form-group">
+    <label for="biography">Biography</label>
+    <textarea 
+        type="text" 
+        name="biography" 
+        class="form-control" 
+        rows="20"
+        placeholder="Enter hymn markdown"><%= author.biography %>
+    </textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+</div>

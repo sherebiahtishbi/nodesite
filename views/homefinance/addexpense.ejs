@@ -1,0 +1,27 @@
+<%- include('./../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Add Expense</h4>
+            </div>
+        </div>
+        <div class="row col st-form-top-buttons">
+            <a href="/finance/expense" role="button" class="btn st-btn-primary"><i class="fas fa-list"></i>&nbsp;Back to
+                all
+                Expenses</a>
+            &nbsp;&nbsp;
+            <a href="/finance/expense/category" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-list"></i>&nbsp;Back
+                to all Categories</a>
+            &nbsp;&nbsp;
+            <a href="/finance/expense/category/add" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-plus"></i>&nbsp;Add Category</a>
+            &nbsp;&nbsp;
+            <a href="/finance/paymentmethod/add" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-plus"></i>&nbsp;Add Payment Method</a>
+        </div>
+        <form action="/finance/expense/save" method="POST">
+            <%- include('_expenseform.ejs') %>
+        </form>
+    </div>
+    <%- include('./../footer.ejs') %>

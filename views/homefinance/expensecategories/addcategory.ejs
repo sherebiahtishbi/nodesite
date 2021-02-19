@@ -1,0 +1,22 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Add Category</h4>
+            </div>
+        </div>
+        <div class="row col st-form-top-buttons">
+            <a href="/finance/expense" role="button" class="btn st-btn-primary"><i class="fas fa-list"></i>&nbsp;Back to
+                all
+                Expenses</a>
+            &nbsp;&nbsp;
+            <a href="/finance/expense/category" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-list"></i>&nbsp;Back
+                to all
+                Categories</a>
+        </div>
+        <form action="/finance/expense/category/save" method="POST">
+            <%- include('_categoryform.ejs') %>
+        </form>
+    </div>
+    <%- include('./../../footer.ejs') %>

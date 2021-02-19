@@ -1,0 +1,76 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Expense/Income Categories</h4>
+            </div>
+        </div>
+        <div class="row col">
+            <a href="/finance/expense/category/add/income" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-plus"></i>&nbsp;Add
+                Category</a>
+            &nbsp;&nbsp;
+        </div>
+        <div class="row col st-table">
+            <input type="text" id="txtCategorySearch" class="form-control" name="search"
+                placeholder="type here to search the categories">
+        </div>
+        <div class="row st-table st-data-filter form-inline">
+            <div class="form-group">
+                <label for="datafilter">Select Category Type</label>&nbsp;
+                <select name="datafilter" id="ddfilter" class="form-control">
+                    <% if (cattype=='Expense' ) { %>
+                        <option selected>Expense</option>
+                        <% } else { %>
+                            <option>Expense</option>
+                            <% } %>
+                                <% if (cattype=='Income' ) { %>
+                                    <option selected>Income</option>
+                                    <% } else { %>
+                                        <option>Income</option>
+                                        <% } %>
+
+                </select>
+            </div>
+        </div>
+        <div class="row col st-table">
+            <table id="tblCategories" class="table table-striped">
+                <thead>
+                    <th width="5%" class="st-th-center"><i class=" fas fa-trash-alt"></i></th>
+                    <th width="85%">
+                        <div>Category Name</div>
+                        <div>
+                            <small>Click on Category name to edit the category details</small>
+                        </div>
+                    </th>
+                    <th width="10%">Type</th>
+                </thead>
+                <tbody>
+                    <% categories.forEach(category=> {%>
+                        <tr>
+                            <td class="text-center">
+                                <!-- <a href="/finance/categories/delete/<%= category.id %>" disabled> -->
+                                <i class="fas fa-trash-alt"></i>
+                                <!-- </a> -->
+                            </td>
+                            <td>
+                                <a href="/finance/expense/category/edit/<%=category.id%>">
+                                    <%= category.categoryName %>
+                                </a>
+                                <%if(category.comment.length>0){%>
+                                    <div class="st-exp-cat-comment">
+                                        <%= category.comment %>
+                                    </div>
+                                    <%}%>
+                            </td>
+                            <td>
+                                <%=category.categorytype %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/authorlist.js"></script>
+    <%- include('./../../footer.ejs') %>

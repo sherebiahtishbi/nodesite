@@ -1,0 +1,114 @@
+<%- include('./../trimmedheader.ejs') %>
+
+    <div class="container">
+        <div class="row col st-table st-page-top-panel">
+            <div class="st-page-title">
+                <h4><i class="fas fa-file-alt"></i>&nbsp;&nbsp;Finance</h4>
+            </div>
+            <div class="st-top-panel-controls">
+                <a href="/finance/expense/add" class="btn st-btn-primary" role="button"><i class="fas fa-plus"></i> Add
+                    Expense</a>
+                &nbsp;&nbsp;
+                <a href="/fiannce/expense/addincome" class="btn st-btn-primary" role="button"><i
+                        class="fas fa-plus"></i> Add
+                    Income</a>
+                &nbsp;&nbsp;
+                <a href="/finance/expense/category" class="btn st-btn-primary" role="button"><i class="fas fa-list"></i>
+                    Show
+                    Expense Categories</a>
+                &nbsp;&nbsp;
+                <a href="/finance/paymentmethod" class="btn st-btn-primary" role="button"><i class="fas fa-list"></i>
+                    Show Payment Methods</a>
+                &nbsp;&nbsp;
+                <a href="/finance/billpay" class="btn st-btn-primary" role="button"><i class="fas fa-list"></i>
+                    Billpay Tracker</a>
+            </div>
+        </div>
+        <div class="row st-table st-data-filter">
+            <div id="divFilters">
+                <label for="Filter">Filter data</label>&nbsp;
+                <select name="datafilter" id="ddfilter" class="form-control">
+                    <option selected>This week</option>
+                    <option selected>Last week</option>
+                    <option selected>This Month</option>
+                    <option selected>Last Month</option>
+                    <option selected>Last 3 Months</option>
+                    <option selected>This year</option>
+                    <option selected>Date range</option>
+                </select>
+            </div>
+            <div id="divDateRange" class="row st-data-filter">
+                <div id="divSdate" class="form-group">
+                    <label for="sdate">Begin Date</label>&nbsp;
+                    <input id="txtSdate" type="text" name="sdate" class="form-control">
+                </div>
+                <div id="divEdate" class="form-group">
+                    <label for="edate">End Date</label>&nbsp;
+                    <input id="txtEdate" type="text" name="edate" class="form-control">
+                </div>
+                <div id="divBtnFilter" class="form-group">
+                    <button id="btnFilter" class="btn st-btn-primary form-control"><i
+                            class="fas fa-search"></i></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="row col st-table">
+            <!-- TODO needs sorting and filtering -->
+            <table id="tblExpenses" class="table table-striped">
+                <thead>
+                    <th width="10%">Date</th>
+                    <th width="30%">Amount ($) & Comments </th>
+                    <th width="10%">Category</th>
+                    <th width="40%">Vendor</th>
+                    <th width="10%">Payment Method</th>
+                </thead>
+                <% if (expenses !=undefined && expenses.length> 0 ) { %>
+                    <tbody>
+                        <% expenses.forEach(expense=>{%>
+                            <tr>
+                                <td>
+                                    <%= expense.dateofexpense.toLocaleDateString()%>
+                                </td>
+                                <td>
+                                    <div>
+                                        <%= expense.amount %>
+                                    </div>
+                                    <div>
+                                        <small>
+                                            <%=expense.comments%>
+                                        </small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <%if( categories.length> 0) {%>
+                                        <% categories.forEach(cat=>{%>
+                                            <%if(cat.id==expense.category) {%>
+                                                <%=cat.categoryName%>
+                                                    <%}%>
+                                                        <%})%>
+                                                            <%}%>
+                                </td>
+                                <td>
+                                    <%=expense.vendor%>
+                                </td>
+                                <td>
+                                    <%if( pmethods.length> 0) {%>
+                                        <% pmethods.forEach(pmethod=>{%>
+                                            <%if(pmethod.id==expense.paymentmethod) {%>
+                                                <%=pmethod.methodname%>
+                                                    <%}%>
+                                                        <%})%>
+                                                            <%}%>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% } %>
+                    </tbody>
+            </table>
+
+            <!-- </div> -->
+        </div>
+    </div>
+    <script src="/js/expensepage.js"></script>
+    <%- include('./../footer.ejs') %>

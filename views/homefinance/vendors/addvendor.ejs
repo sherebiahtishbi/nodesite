@@ -1,0 +1,16 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-store"></i>&nbsp;Add Vendor</h4>
+            </div>
+        </div>
+        <div class="row col st-form-top-buttons">
+            <a href="/finance/vendor/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Back
+                to all Vendors</a>
+        </div>
+        <form action="/finance/vendor/save" method="POST">
+            <%- include('_vendorform.ejs') %>
+        </form>
+    </div>
+    <%- include('./../../footer.ejs') %>

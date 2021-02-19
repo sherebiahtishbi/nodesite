@@ -1,0 +1,17 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col">
+        <div class="st-page-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Add Author</h4>
+        </div>
+    </div>
+    <div class="row col st-form-top-buttons">
+        <a href="/hymns/authors" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Show all Authors</a>
+        &nbsp;&nbsp;
+        <a href="/hymns" role="button" class="btn st-btn-primary"><i class="fas fa-music"></i>&nbsp;Back to Hymns</a>
+    </div>
+    <form action="/hymns/authoradd"  method="POST">
+        <%- include('_authorform.ejs') %>
+    </form>
+</div>
+<%- include('./../footer.ejs') %>

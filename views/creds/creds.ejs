@@ -1,0 +1,67 @@
+<%- include('./../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Credentials</h4>
+            </div>
+        </div>
+        <div class="row col">
+            <a href="/creds/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Add
+                Credential</a>
+        </div>
+        <div class="row col st-table">
+            <input type="text" id="txtCredSearch" class="form-control" name="search"
+                placeholder="type here to search the Credential">
+        </div>
+        <div class="row col st-table">
+            <table id="tblCreds" class="table table-striped">
+                <thead>
+                    <th width="20%">Sitename</th>
+                    <th width="40%">Url</th>
+                    <th width="10%">Userid</th>
+                    <th width="10%">Password</th>
+                </thead>
+                <tbody>
+                    <% creds.forEach(cred=> {%>
+                        <tr>
+                            <td>
+                                <div><a href="/creds/edit/<%= cred.id %>">
+                                        <%= cred.site %>
+                                    </a>
+                                </div>
+                                <div class="st-site-comment">
+                                    <%= cred.comment %>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="<%= cred.siteurl %>">
+                                    <%= cred.siteurl %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= cred.username %>
+                            </td>
+                            <td>
+                                <div id="divPwd">
+                                    <a href="#" id="aPwd">
+                                        <%= cred.password %>
+                                    </a>
+                                    <a href="#" id="aDots">
+                                        ********
+                                    </a>
+                                    <!-- <span id="spanPwdactual" class="st-password">
+                                        <%= cred.password %>
+                                    </span>
+                                    <span id="spanPwdplaceholder" class="st-password">
+                                        *********
+                                    </span> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/crdentialpage.js"></script>
+    <%- include('./../footer.ejs') %>

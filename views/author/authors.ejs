@@ -1,0 +1,47 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col">
+        <div class="st-page-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Authors</h4>
+        </div>
+    </div>
+    <div class="row col">
+        <a href="/hymns/author/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Add Author</a>
+        &nbsp;&nbsp;
+        <a href="/hymns" role="button" class="btn st-btn-primary"><i class="fas fa-music"></i>&nbsp;Back to Hymns
+            </a>
+    </div>
+    <div class="row col st-table">
+        <input type="text" id="txtAuthorSearch" class="form-control" name="search" placeholder="type here to search the authors">
+    </div>
+    <div class="row col st-table">
+        <table id="tblAuthors" class="table table-striped">
+            <thead>
+                <th width="20%">Author Name</th>
+                <th width="60%">Biography</th>
+                <th width="20%" class="text-center">Action</th>
+            </thead>
+            <tbody>
+                <% authors.forEach(author => {%>
+                    <tr>
+                        <td>
+                            <a href="/hymns/author/showbyid/<%= author.id %>">
+                                <%= author.name %>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/hymns/author/showbyid/<%= author.id %>">
+                                <%= author.biography.substring(0,250) %> ...
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/hymns/author/edit/<%= author.id %>"><i class="fas fa-edit"></i></a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/authorlist.js"></script>
+<%- include('./../footer.ejs') %>

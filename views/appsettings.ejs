@@ -1,0 +1,37 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col text-center">
+        <div class="st-page-title">
+            <h4><i class="fas fa-book-open"></i>&nbsp;Bible Versions</h4>
+        </div>
+    </div>
+    <!-- <div class="row col text-center">
+        <a href="/bible/versions" role="button" class="btn st-btn-primary">List all versions</a>
+    </div> -->
+    <div class="row col">
+        <div class="alert alert-primary col-md-12">
+            Data retrieved thankfully from American Bible Society database
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <!-- <th width="20%">Raw ID</th> -->
+                <!-- <th width="10%">Version ID</th> -->
+                <th width="50%">Version Name</th>
+                <!-- <th width="20%">Updated Date</th> -->
+            </thead>
+            <tbody>
+                <% versions.forEach(version=>{ %>
+                <tr>
+                    <!-- <td>
+                        <div><%= version.id %></div>
+                    </td>
+                    <td><%= version.abbreviation %></td> -->
+                    <td><%= version.name %></td>
+                    <!-- <td><%= version.updatedAt %></td> -->
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('./../footer.ejs') %>

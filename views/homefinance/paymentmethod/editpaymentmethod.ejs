@@ -1,0 +1,17 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Edit Payment Method</h4>
+            </div>
+        </div>
+        <div class="row col st-form-top-buttons">
+            <a href="/finance/paymentmethod" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-list"></i>&nbsp;Show all
+                Payment Methods</a>
+        </div>
+        <form action="/finance/paymentmethod/update/<%=paymethod.id%>?_method=PUT" method="POST">
+            <%- include('_paymentmethodform.ejs') %>
+        </form>
+    </div>
+    <%- include('./../../footer.ejs') %>

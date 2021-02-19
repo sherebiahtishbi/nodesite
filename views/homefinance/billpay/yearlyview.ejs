@@ -1,0 +1,127 @@
+<%- include('./../../trimmedheader.ejs') %>
+
+    <div class="container">
+        <div class="row col st-table st-page-top-panel">
+            <div class="st-page-title">
+                <h4><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Billpay Tracker</h4>
+            </div>
+            <div class="st-top-panel-controls">
+                <!-- <a href="/finance/billpay/add/none" class="btn st-btn-primary" role="button"><i class="fas fa-plus"></i>
+                    Add Payment</a>
+                &nbsp;&nbsp;
+                <a href="/finance/income/add/none" class="btn st-btn-primary" role="button"><i class="fas fa-plus"></i>
+                    Add Income </a>
+                &nbsp;&nbsp; -->
+                <a href="/finance/vendor" class="btn st-btn-primary" role="button"><i class="fas fa-list"></i> Show All
+                    Vendors</a>
+                &nbsp;&nbsp;
+                <a href="/finance/paymentmethod" class="btn st-btn-primary" role="button"><i class="fas fa-list"></i>
+                    Show All Payment Methods</a>
+                &nbsp;&nbsp;
+                <a href="/finance/expense/category/Income" class="btn st-btn-primary" role="button"><i
+                        class="fas fa-list"></i>
+                    Show All Income Type</a>
+            </div>
+        </div>
+        <div class="row st-table st-billpay-topbar">
+            <div class="st-data-filter form-inline">
+                <div class="form-group">
+                    <label for="datafilter">Choose year</label>&nbsp;
+                    <select name="datafilter" id="ddfilter" class="form-control">
+                        <% years.forEach(year=>{%>
+                            <% if (year==selectedyear) { %>
+                                <option selected>
+                                    <%= (year==new Date().getFullYear()) ? 'Current' : year %>
+                                </option>
+                                <%} else {%>
+                                    <option>
+                                        <%= (year==new Date().getFullYear()) ? 'Current' : year %>
+                                    </option>
+                                    <%}%>
+                                        <% }) %>
+                                            <!-- <option selected>Current</option>
+                        <option>2020</option>
+                        <option>2019</option>
+                        <option>2018</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option> -->
+                    </select>
+                </div>
+                <div id="divSearch" class="form-group">
+                    <!-- <label for="search">Search</label> -->
+                    <input type="text" id="txtSearch" class="form-control" placeholder="Search">
+                </div>
+                <div id="divHighlight" class="form-group">
+                    <!-- <label for="search">Highlight Amount</label> -->
+                    <input type="text" id="txtThreshold" class="form-control" placeholder="Amount to Highlight">
+                </div>
+                <div class="form-group">
+                    <div id="divCheck" class="form-check">
+                        <input type="checkbox" id="chkShowlastyear" name="showlastyear" class="form-check-input"
+                            checked>
+                        <label for="showlastyear" class="form-check-label">Show last year data</label>
+                    </div>
+                </div>
+                <!-- <div id="divBtnFilter" class="form-group">
+                    <button id="btnFilter" class="btn st-btn-primary form-control">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div> -->
+            </div>
+            <div class="form-group st-totals">
+                <div class="st-income">
+                    <span><b><i class="fas fa-long-arrow-alt-down"></i>&nbsp;&nbsp;</b></span>
+                    <b><span id="spanIncome">0.00</span></b>
+                </div>
+                <div class="st-expense">
+                    <span><b><i class="fas fa-long-arrow-alt-up"></i>&nbsp;&nbsp;</b></span>
+                    <b><span id="spanPayment">0.00</span></b>
+                </div>
+            </div>
+        </div>
+        <div class="row col st-table">
+            <table id="tblBillpay" class="table table-striped">
+                <thead>
+                    <th width="10%">Vendor</th>
+                    <th width="5%" class="st-th-right">Jan</th>
+                    <th width="5%" class="st-th-right">Feb</th>
+                    <th width="5%" class="st-th-right">Mar</th>
+                    <th width="5%" class="st-th-right">Apr</th>
+                    <th width="5%" class="st-th-right">May</th>
+                    <th width="5%" class="st-th-right">Jun</th>
+                    <th width="5%" class="st-th-right">Jul</th>
+                    <th width="5%" class="st-th-right">Aug</th>
+                    <th width="5%" class="st-th-right">Sep</th>
+                    <th width="5%" class="st-th-right">Oct</th>
+                    <th width="5%" class="st-th-right">Nov</th>
+                    <th width="5%" class="st-th-right">Dec</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="row col st-table">
+            <table id="tblIncome" class="table table-striped">
+                <!-- <thead>
+                    <th width="10%">Income Type</th>
+                    <th width="5%" class="st-th-right">Jan</th>
+                    <th width="5%" class="st-th-right">Feb</th>
+                    <th width="5%" class="st-th-right">Mar</th>
+                    <th width="5%" class="st-th-right">Apr</th>
+                    <th width="5%" class="st-th-right">May</th>
+                    <th width="5%" class="st-th-right">Jun</th>
+                    <th width="5%" class="st-th-right">Jul</th>
+                    <th width="5%" class="st-th-right">Aug</th>
+                    <th width="5%" class="st-th-right">Sep</th>
+                    <th width="5%" class="st-th-right">Oct</th>
+                    <th width="5%" class="st-th-right">Nov</th>
+                    <th width="5%" class="st-th-right">Dec</th>
+                </thead> -->
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/billpayview.js"></script>
+    <%- include('./../../footer.ejs') %>

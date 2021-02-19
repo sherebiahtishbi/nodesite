@@ -1,0 +1,89 @@
+<div class="form-group">
+    <label for="vendor">Select Vendor</label>
+    <select name="vendor" id="ddVendor" class="form-control">
+        <% vendors.forEach(vendor=>{%>
+            <% if (vendor.id==billpay.vendor) { %>
+                <option value="<%=vendor.id%>" selected>
+                    <%=vendor.vendorname%>
+                </option>
+                <%} else { %>
+                    <option value="<%=vendor.id%>">
+                        <%=vendor.vendorname%>
+                    </option>
+                    <%}%>
+                        <%})%>
+    </select>
+</div>
+<div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="text" name="amount" class="form-control" placeholder="Amount" value="<%= billpay.amount %>">
+</div>
+<div id="divYearMonth" class="form-row">
+    <div class="form-group">
+        <label for="year">Select Year</label>
+        <select name="year" id="ddYear" class="form-control">
+            <% years.forEach(year=>{%>
+                <% if (year==billpay.payyear) { %>
+                    <option value="<%=year%>" selected>
+                        <%=year%>
+                    </option>
+                    <%} else { %>
+                        <option value="<%=year%>">
+                            <%=year%>
+                        </option>
+                        <%}%>
+                            <%})%>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="month">Select Month</label>
+        <select name="month" id="ddMonth" class="form-control">
+            <% months.forEach(month=> {%>
+                <% if (month.monthno==billpay.paymonth) { %>
+                    <option value="<%=month.monthno%>" selected>
+                        <%=month.monthname%>
+                    </option>
+                    <% } else { %>
+                        <option value="<%=month.monthno%>">
+                            <%=month.monthname%>
+                        </option>
+                        <% } %>
+                            <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="paymethod">Select Payment Method</label>
+        <select name="paymethod" id="ddPaymethod" class="form-control">
+            <% paymethods.forEach(paymethod=> {%>
+                <% if (billpay.paymethod==paymethod.id) { %>
+                    <option value="<%=paymethod.id%>" selected>
+                        <%=paymethod.methodname%>
+                    </option>
+                    <% } else { %>
+                        <option value="<%=paymethod.id%>">
+                            <%=paymethod.methodname%>
+                        </option>
+                        <% } %>
+                            <% }) %>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <div id="divCheck" class="form-check">
+        <% if (billpay.includeintotal==true) { %>
+            <input type="checkbox" name="includeintotal" class="form-check-input" checked>
+            <%} else {%>
+                <input type="checkbox" name="includeintotal" class="form-check-input">
+                <%}%>
+                    <label for="includeintotal" class="form-check-label">Include in Total</label>
+    </div>
+</div>
+<div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea type="text" name="comments" class="form-control" rows="5"
+        placeholder="Additional details"><%= billpay.comments %></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button> &nbsp;&nbsp;
+    <a href="/finance/billpay" role="button" class="btn st-btn-primary">Cancel</a>
+</div>

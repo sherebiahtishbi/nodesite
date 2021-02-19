@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="title"
+        value="<%= (article.title != undefined) ? article.title : '' %>" required>
+</div>
+<div class="form-group">
+    <label for="category">Category</label>
+    <select name="category" id="articleCategory" class="form-control" required>
+        <% if (categories != undefined && categories.length > 0) { %>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name%></option>
+            <% }) %>
+        <% } %>
+    </select>
+</div>
+<div class="form-group">
+    <label for="content">Content</label>
+    <textarea name="content" id="articleText" rows="20" class="form-control" type="text"
+        required><%= (article.content != undefined) ? article.content : "" %></textarea>
+</div>
+

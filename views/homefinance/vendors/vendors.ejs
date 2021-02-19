@@ -1,0 +1,61 @@
+<%- include('./../../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-store"></i>&nbsp;Vendors</h4>
+            </div>
+        </div>
+        <div class="row col">
+            <a href="/finance/vendor/add" role="button" class="btn st-btn-primary"><i class="fas fa-plus"></i>&nbsp;Add
+                Vendor</a>
+            &nbsp;&nbsp;
+            <a href="/finance/billpay" role="button" class="btn st-btn-primary"><i
+                    class="fas fa-money-check-alt"></i>&nbsp;Billpay
+                Home</a>
+        </div>
+        <div class="row col st-table">
+            <input type="text" id="txtCategorySearch" class="form-control" name="search"
+                placeholder="type here to search the vendor">
+        </div>
+        <div class="row col st-table">
+            <table id="tblVendors" class="table table-striped">
+                <thead>
+                    <th width="5%" class="st-th-center"><i class=" fas fa-trash-alt"></i></th>
+                    <th width="5%" class="st-th-center">Display Order</th>
+                    <th width="40%">
+                        <div>Vendor Name</div>
+                        <div>
+                            <small>Click on vendor name to edit its details.</small>
+                        </div>
+                    </th>
+                    <th width="50%">Comments / Additional Details</th>
+                </thead>
+                <tbody>
+                    <% vendors.forEach(vendor=> {%>
+                        <tr>
+                            <td class="text-center">
+                                <!-- <a href="/finance/paymentmethod/delete/" disabled> -->
+                                <i class="fas fa-trash-alt"></i>
+                                <!-- </a> -->
+                            </td>
+                            <td>
+                                <%=vendor.displayorder%>
+                            </td>
+                            <td>
+                                <a href="/finance/vendor/edit/<%=vendor.id%>">
+                                    <%= vendor.vendorname %>
+                                </a>
+                            </td>
+                            <td>
+                                <div class="st-exp-cat-comment">
+                                    <%= vendor.comments %>
+                                </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <script src="/js/authorlist.js"></script> -->
+    <%- include('./../../footer.ejs') %>

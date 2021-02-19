@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Oxygen&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/fontawesome/css/all.css" type="text/css">
+        <link rel="stylesheet" href="/css/custom.css" type="text/css">
+        <title><%= hymn.title %>></title>
+    </head>
+
+    <body class="st-showhymn-body">
+        <div class="container-fluid">
+            <div id="divAuthor" class="row col st-author st-hide">
+                <div class="modal-header">
+                    <h5 class="modal-title st-biography-header"><%= author.name %></h5>
+                    <button id="btnCloseAuthor" type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body st-biography">
+                    <%= author.biography %>
+                </div>
+            </div>
+            <div id="divHymn" class="row col st-hymn text-center st-show">
+                <a href="#" id="aAuthor" class="st-hymn-author"><%= hymn.author%></a>
+
+                <!-- Stanza 1 -->
+                <% if (hymn.stanza1.trim() != "") { %>
+                    <div class="st-stanza">
+                        <%= hymn.stanza1.trim() %>
+                    </div>
+                    <% if(hymn.refrain.trim() != "") {%>            
+                        <div class="st-refrain">
+                            <%= hymn.refrain.trim() %>
+                        </div>
+                    <% } %>
+                <% } %>
+                <!-- Stanza 1 -->
+                <% if (hymn.stanza2.trim() != "") {%>
+                    <div class="st-stanza">
+                        <%= hymn.stanza2.trim() %>
+                    </div>
+                    <% if(hymn.refrain.trim() != "") {%>
+                        <div class="st-refrain">
+                            <%= hymn.refrain.trim() %>
+                        </div>
+                    <% } %>
+                <% } %>
+                <!-- Stanza 3 -->
+                <% if (hymn.stanza3.trim() != "") {%>
+                    <div class="st-stanza">
+                        <%= hymn.stanza3.trim() %>
+                    </div>
+                    <% if(hymn.refrain.trim() != "") {%>
+                        <div class="st-refrain">
+                            <%= hymn.refrain.trim() %>
+                        </div>
+                    <% } %>
+                <% } %>
+                <!-- Stanza 4 -->
+                <% if (hymn.stanza4.trim() != "") {%>
+                    <div class="st-stanza">
+                        <%= hymn.stanza4.trim() %>
+                    </div>
+                    <% if(hymn.refrain.trim() != "") {%>
+                    <div class="st-refrain">
+                        <%= hymn.refrain.trim() %>
+                    </div>
+                    <% } %>
+                <% } %>            
+                <!-- Stanza 5 -->
+                <% if (hymn.stanza5.trim() != "") {%>
+                    <div class="st-stanza">
+                        <%= hymn.stanza5.trim() %>
+                    </div>
+                    <% if(hymn.refrain.trim() != "") {%>
+                        <div class="st-refrain">
+                            <%= hymn.refrain.trim() %>
+                        </div>
+                    <% } %>
+                <% } %>
+            </div>
+            <!-- footer -->
+            <div class='st-showhymn-footer'>Copyright &copy; bySherebiah Tisbi</div>
+        </div>
+        <!-- all scripts -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/showhymn.js"></script>
+    </body>
+</html>

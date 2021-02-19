@@ -1,0 +1,80 @@
+<%- include('./../trimmedheader.ejs') %>
+
+    <div class="container">
+        <div class="row col st-table st-page-top-panel">
+            <div class="st-page-title">
+                <h4><i class="fas fa-file-alt"></i>&nbsp;&nbsp;Diary</h4>
+            </div>
+            <div class="st-top-panel-controls">
+                <a href="/articles/add" class="btn st-btn-primary" role="button">New Entry</a>
+            </div>
+        </div>
+        <div class="row col st-table st-main-content st-articles-list">
+            <div class="st-leftbar">
+                <ul>
+                    <li>
+                        <a class="leftbar-link" href="/articles/filter/today">Today</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/yday">Yesterday</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/past7days">Past 7 days</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/thismonth">This month</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/lastmonth">Last Month</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/thisyear">This year</a>
+                    </li>
+                    <li>
+                        <a href="/articles/filter/lastyear">Last year</a>
+                    </li>
+                    <li class="st-left-daterange">
+                        <div class="st-daterange-title">Custom range</div>
+                        <div class="form-group">
+                            <input id="txtStartDt" type="text" placeholder="Start date" class="form-control dt-picker">
+                        </div>
+                        <div class="form-group">
+                            <input id="txtEndDt" type="text" placeholder="End date" class="form-control dt-picker">
+                        </div>
+                        <button id="btnDateRange" class="btn st-btn-primary">Find</button>
+                        <!-- <a href="/articles/filter/startdate/enddate"></a> -->
+                    </li>
+                </ul>
+            </div>
+            <div class="st-article-list">
+                <% if (articles !=undefined && articles.length> 0 ) { %>
+                    <% articles.forEach(article=>{%>
+                        <table id="tblArticles">
+                            <tbody>
+                                <tr>
+                                    <td class="st-article-cell">
+                                        <div class="st-article-header">
+                                            <a href="/articles/show/<%= article.id %>">
+                                                <h4>
+                                                    <%= article.title %>
+                                                </h4>
+                                            </a>
+                                            <small>
+                                                <%= article.creatDate.toDateString() %>
+                                            </small>
+                                        </div>
+                                        <div class="st-article-summary">
+                                            <%= article.content.substring(0,300) %> ...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <% }) %>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/js/articlepage.js"></script>
+    <%- include('./../footer.ejs') %>

@@ -1,0 +1,26 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col st-page-top-panel">
+        <div class="st-page-title">
+            <h4><i class="fas fa-file-alt"></i>&nbsp;&nbsp;<%= article.title %></h4>
+        </div>
+        <div class="st-top-panel-controls">
+            <a href="/articles" class="btn st-btn-primary" role="button">Back to Diary</a>
+            &nbsp;&nbsp;
+            <a href="/articles/edit/<%= article.id %>" class="btn st-btn-primary" role="button">Edit Entry</a>
+            &nbsp;&nbsp;
+            <a href="/articles/add" class="btn st-btn-primary" role="button">New Entry</a>
+        </div>
+    </div>
+    <div class="row col st-table st-main-content">
+        <div id="divArticleOriginal" class="st-notes-hidden">
+            <%= article.content %>
+        </div>
+        <div class="st-article-preview" id="prvwArticle">
+            
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="/js/articlepage.js"></script>
+<%- include('./../footer.ejs') %>

@@ -1,0 +1,63 @@
+<div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" class="form-control" placeholder="Hymn title" value="<%= hymn.title %>">
+</div>
+<div class="form-group">
+    <label for="author">Author</label>
+    <select name="author" id="ddAuthor" class="form-control">
+        <% authors.forEach(author => {%>
+            <% if (hymn.author == author.name ) { %>
+                <option value="<%= author.id %>" selected><%= author.name %></option>
+            <% } else { %>
+                <option value="<%= author.id %>"><%= author.name %></option>
+            <% } %>
+        <% }) %>
+    </select>
+</div>
+<div class="form-group">
+    <label for="">Refrain</label>
+    <textarea type="text" name="refrain" class="form-control" rows="5" placeholder="Enter refrain"><%= hymn.refrain %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 1</label>
+    <textarea type="text" name="stanza1" class="form-control" rows="5" placeholder="Enter Stanza 1"><%= hymn.stanza1 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 2</label>
+    <textarea type="text" name="stanza2" class="form-control" rows="5" placeholder="Enter Stanza 2"><%= hymn.stanza2 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 3</label>
+    <textarea type="txt" name="stanza3" class="form-control" rows="5" placeholder="Enter Stanza 3"><%= hymn.stanza3 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 4</label>
+    <textarea type="text" name="stanza4" class="form-control" rows="5" placeholder="Enter Stanza 4"><%= hymn.stanza4 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 5</label>
+    <textarea type="text" name="stanza5" class="form-control" rows="5" placeholder="Enter Stanza 5"><%= hymn.stanza5 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 6</label>
+    <textarea type="text" name="stanza6" class="form-control" rows="5" placeholder="Enter Stanza 6"><%= hymn.stanza6 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 7</label>
+    <textarea type="text" name="stanza7" class="form-control" rows="5" placeholder="Enter Stanza 7"><%= hymn.stanza7 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 8</label>
+    <textarea type="text" name="stanza8" class="form-control" rows="5" placeholder="Enter Stanza 8"><%= hymn.stanza8 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 9</label>
+    <textarea type="text" name="stanza9" class="form-control" rows="5" placeholder="Enter Stanza 9"><%= hymn.stanza9 %></textarea>
+</div>
+<div class="form-group">
+    <label for="">Stanza 10</label>
+    <textarea type="text" name="stanza10" class="form-control" rows="5" placeholder="Enter Stanza 10"><%= hymn.stanza10 %></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+</div>

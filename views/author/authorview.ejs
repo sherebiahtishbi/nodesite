@@ -1,0 +1,21 @@
+<%- include('./../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-user"></i>&nbsp;Author view</h4>
+            </div>
+        </div>
+        <div class="row col st-top-buttons">
+            <a href="/hymns/author/edit/<%=author.id%>" role="button" class="btn st-btn-primary col-md-2 col-sm-12"><i class="fas fa-edit"></i>&nbsp;&nbsp;Edit</a>
+            <a href="/hymns/authors" role="button" class="btn st-btn-primary col-md-2 col-sm-12"><i class="fas fa-list"></i>&nbsp;&nbsp;Show All Authors</a>
+        </div>
+        <div class="row col st-author-view">
+            <div class="st-header">
+                <h5 class="modal-title st-biography-header"><%= author.name %></h5>
+            </div>
+            <div class="st-biography">
+                <%= author.biography %>
+            </div>
+        </div>
+    </div>
+<%- include('./../footer.ejs') %>

@@ -1,0 +1,16 @@
+<%- include('./../trimmedheader.ejs') %>
+<div class="container">
+    <div class="row col">
+        <div class="st-page-title">
+            <h4><i class="fas fa-music"></i>&nbsp;Add new Hymn</h4>
+        </div>
+    </div>
+    <div class="row col st-form-top-buttons">
+        <a href="/hymns" role="button" class="btn st-btn-primary"><i class="fas fa-music"></i>&nbsp;Back to Hymns</a>
+        &nbsp;&nbsp;
+    </div>
+    <form action="/hymns/addhymn" method="POST">
+        <%- include('_hymnform.ejs') %>
+    </form>
+</div>
+<%- include('./../footer.ejs') %>

@@ -1,0 +1,116 @@
+<%- include('./../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col st-table">
+            <div class="st-page-title">
+                <h4><i class="fas fa-comment-alt"></i>&nbsp;Meditations</h4>
+            </div>
+        </div>
+        <div class="row col st-table">
+            <div class="col-md-2 col-sm-12 st-leftbar text-left">
+                <ul>
+                    <li>
+                        <a class="leftbar-link" href="/meditation/filter/today">Today</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/yday">Yesterday</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/past7days">Past 7 days</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/thismonth">This month</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/lastmonth">Last Month</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/thisyear">This year</a>
+                    </li>
+                    <li>
+                        <a href="/meditation/filter/lastyear">Last year</a>
+                    </li>
+                    <li class="st-left-daterange">
+                        <div class="st-daterange-title">Custom range</div>
+                        <div class="form-group">
+                            <% if (dates.startDate !='' ) { %>
+                                <input id="txtStartDt" type="text" placeholder="Start date"
+                                    class="form-control dt-picker"
+                                    value="<%= new Date(dates.startDate).toLocaleDateString() %>">
+                                <% } else { %>
+                                    <input id="txtStartDt" type="text" placeholder="Start date"
+                                        class="form-control dt-picker">
+                                    <% } %>
+                        </div>
+                        <div class="form-group">
+                            <% if (dates.endDate !='' ) { %>
+                                <input id="txtEndDt" type="text" placeholder="End date" class="form-control dt-picker"
+                                    value="<%= new Date(dates.endDate).toLocaleDateString() %>">
+                                <% } else { %>
+                                    <input id="txtEndDt" type="text" placeholder="End date"
+                                        class="form-control dt-picker">
+                                    <% } %>
+                        </div>
+                        <button id="btnDateRange" class="btn st-btn-primary">Find</button>
+                        <!-- <a href="/meditation/filter/startdate/enddate"></a> -->
+                    </li>
+                </ul>
+                <!-- <div class="st-import">
+                <button class="btn st-btn-primary" id="btnImport">Import Notes</button>
+            </div> -->
+            </div>
+            <div id="divScriptureContent" class="col-md-10 col-sm-12">
+                <% if (notes.length> 0) { %>
+                    <table>
+                        <tbody>
+                            <% notes.forEach(note=>{ %>
+                                <% if (note.note !='' ) { %>
+                                    <tr>
+                                        <td>
+                                            <div class='st-meditation'>
+                                                <span class='st-meditation-header'>
+                                                    <%= note.creatDate.toDateString()%>
+                                                </span>
+                                                <div class="st-meditation-verseref">
+                                                    <span id="book_<%= note.id %>">
+                                                        <%= note.book %>
+                                                    </span>
+                                                    <span id="chapter_<%= note.id %>">
+                                                        <%= note.chapter %>
+                                                    </span>
+                                                    <span id="verse_<%= note.id %>">
+                                                        <%= note.verse %>
+                                                    </span>
+                                                </div>
+                                                <div class='st-meditation-body'>
+                                                    <span id='span_<%= note.id %>'>
+                                                        <%= note.note %>
+                                                    </span>
+                                                    <a href="#div_%= note.id %>" id="a_<%= note.id %>"
+                                                        class="st-meditation-edit"><i class="fas fa-edit"></i></a>
+                                                </div>
+                                                <div id="div_<%= note.id %>" class="st-hide">
+                                                    <span class="st-control-info">Once done click the same pencil icon
+                                                        again to save the edited notes.</span>
+                                                    <textarea id="text_<%= note.id %>" class="form-control" name="note"
+                                                        id="" rows="5"><%= note.note %></textarea>
+                                                    <input type="hidden" id="hid_<%= note.id %>"
+                                                        value="<%= note.version %>">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% }) %>
+                        </tbody>
+                    </table>
+                    <% } else { %>
+                        <div class="st-meditation-nodata">
+                            <h4>No notes for the selected period!</h4>
+                        </div>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/js/meditationpage.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <%- include('./../footer.ejs') %>

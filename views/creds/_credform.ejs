@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label for="sitename">Site name</label>
+    <input type="text" name="sitename" class="form-control" placeholder="Site name" value="<%= cred.site %>">
+</div>
+<div class="form-group">
+    <label for="siteurl">Url</label>
+    <input type="text" name="siteurl" class="form-control" placeholder="Site url" value="<%= cred.siteurl %>">
+</div>
+<div class="form-group">
+    <label for="siteuname">User Id</label>
+    <input type="text" name="siteuname" class="form-control" placeholder="UserId" value="<%= cred.username %>">
+</div>
+<div class="form-group">
+    <label for="sitepwd">Password</label>
+    <input type="text" name="sitepwd" class="form-control" placeholder="Password" value="<%= cred.password %>">
+</div>
+<div class="form-group">
+    <label for="comment">Comments</label>
+    <textarea type="text" name="comment" class="form-control" rows="5"
+        placeholder="Additional details"><%= cred.comment %></textarea>
+</div>
+<div>
+    <button type="submit" class="btn st-btn-primary">Save</button>
+</div>
