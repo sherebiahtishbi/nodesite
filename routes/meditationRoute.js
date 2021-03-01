@@ -59,6 +59,7 @@ router.get('/filter/:date', async (req, res) => {
             let notes = await Note.find(query).sort({ creatDate: 'desc' })
             // console.log(notes)
             let dates = { startDate: daterange.startdate, endDate: daterange.enddate }
+            console.log(notes)
             if (notes.length > 0) {
                 res.render('meditation/meditations', { notes: notes, dates: dates })
             }

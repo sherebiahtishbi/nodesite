@@ -90,7 +90,8 @@ audio {
 
 .st-card {
     margin-bottom: .2rem;
-    margin-top: .5rem;    
+    margin-top: .5rem;   
+    height: 12rem; 
 }
 
 .st-card-title {
@@ -811,7 +812,7 @@ button#btnCloseAuthor {
     flex: 1;
 }
 
-#tblBillpay td, #tblIncome td {
+#tblHymns td, #tblBillpay td, #tblIncome td {
     padding: .25rem;
 }
 

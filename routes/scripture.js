@@ -5,16 +5,16 @@ const bibleApi = require('./../js/bibleapi')
 const needle = require('needle')
 const mongoose = require('mongoose')
 const Note = require('./../models/notes')
-const router = express.Router()      
+const router = express.Router()
 
 var baseApi = config.abs.baseUrl
 
 router.get('/', (req, res) => {
     getVersions()
-        .then((data) => { 
+        .then((data) => {
             res.render('scripture/versions', { versions: data })
         })
-        .catch((err) => { 
+        .catch((err) => {
             res.render('scripture/versions', { Error: err })
         })
 })
@@ -25,14 +25,14 @@ router.get('/books/:id', (req, res) => {
         .then((version) => {
             console.log(version)
             getBooks(versionid)
-                .then((books) => { 
+                .then((books) => {
                     res.render('scripture/books', { books: books, versiondetail: version })
                 })
-                .catch((err) => { 
+                .catch((err) => {
                     console.log('Error >' + err)
-                })            
+                })
         })
-        .catch((err) => { 
+        .catch((err) => {
             console.log('Error >' + err)
         })
 })
@@ -41,13 +41,13 @@ router.get('/chapters/:version/:book', (req, res) => {
     let versionid = req.params.version
     let bookid = req.params.book
     getVersions(versionid)
-        .then((version) => { 
+        .then((version) => {
             getBooks(versionid, bookid, true)
-                .then((book) => { 
+                .then((book) => {
                     console.log('Book with chapters')
                     res.render('scripture/chapters', { book: book, version: version })
                 })
-                .catch((err) => { 
+                .catch((err) => {
                     console.log('GET:/chapters/version/book -> Error getting book>' + err)
                 })
         })
@@ -56,7 +56,7 @@ router.get('/chapters/:version/:book', (req, res) => {
         })
 })
 
-router.get('/text/:version/:book/:chapter', (req,res) => { 
+router.get('/text/:version/:book/:chapter', (req, res) => {
 
     let versionid = req.params.version
     let bookid = req.params.book
@@ -65,9 +65,9 @@ router.get('/text/:version/:book/:chapter', (req,res) => {
     getVersions(versionid)
         .then((version) => {
             getBooks(versionid, bookid, false)
-                .then((book) => { 
+                .then((book) => {
                     getScriptureText(versionid, chapterid)
-                        .then((content) => { 
+                        .then((content) => {
                             // console.log(content)
                             res.render('scripture/scripture', { scripture: content, version: version, book: book, chapterid: chapterid })
                             // res.render('scripture/scripture', { scripture: content.scripture, version: version, book: book, chapterid: chapterid, notes: content.notes })
@@ -76,16 +76,16 @@ router.get('/text/:version/:book/:chapter', (req,res) => {
                             console.log('GET:/text/version/book/chapter -> getScriptureText():error -> ' + err)
                         })
                 })
-                .catch((err) => { 
+                .catch((err) => {
                     console.log('GET:/text/version/book/chapter -> getBooks():error -> ' + err)
                 })
         })
-        .catch((err) => { 
-            console.log('GET:/text/version/book/chapter -> getVersion():error -> '+ err)
+        .catch((err) => {
+            console.log('GET:/text/version/book/chapter -> getVersion():error -> ' + err)
         })
 })
 
-router.get('/getnotes/:version/:book/:chapter/:verse',async (req,res) => {
+router.get('/getnotes/:version/:book/:chapter/:verse', async (req, res) => {
 
     let version = req.params.version
     let book = req.params.book
@@ -99,12 +99,12 @@ router.get('/getnotes/:version/:book/:chapter/:verse',async (req,res) => {
     console.log('Verse > ' + verse)
 
     let note = await Note.find(
-        {version: version, book: book, chapter: chapter, verse: verse},
-        (err)=>{
+        { version: version, book: book, chapter: chapter, verse: verse },
+        (err) => {
             console.log('GET: /notes/:version/:book/:chapter/:verse Error > ' + err)
         })
 
-    res.send({note: note});
+    res.send({ note: note });
 })
 
 router.get('/getnotes/:version/:book/:chapter', async (req, res) => {
@@ -123,12 +123,12 @@ router.get('/getnotes/:version/:book/:chapter', async (req, res) => {
         (err) => {
             console.log('GET: /notes/:version/:book/:chapter Error > ' + err)
         })
-
+    console.log(notes);
     res.send({ notes: notes });
 })
 
 
-router.post('/savenotes/:version/:book/:chapter/:verse',async (req,res) => {
+router.post('/savenotes/:version/:book/:chapter/:verse', async (req, res) => {
 
     let version = req.params.version
     let book = req.params.book
@@ -144,13 +144,13 @@ router.post('/savenotes/:version/:book/:chapter/:verse',async (req,res) => {
     console.log('POST data -> note -> ' + noteTosave)
 
     let note = await Note.findOne(
-        {version: version, book: book, chapter: chapter, verse: verse},
-        (err)=>{
+        { version: version, book: book, chapter: chapter, verse: verse },
+        (err) => {
             console.log('POST: /notes/:version/:book/:chapter/:verse Error > ' + err)
         })
-    
+
     console.log(note)
-    
+
     if (note == null) {
         console.log('POST: /notes/:version/:book/:chapter/:verse > Note didnt exist will create one')
         note = new Note()
@@ -168,7 +168,7 @@ router.post('/savenotes/:version/:book/:chapter/:verse',async (req,res) => {
 
     // console.log("Let's see what note looks like after update>")
     // console.log(note)
-    try { 
+    try {
         note = await note.save()
         // console.log("And this is how it looks like after update>")
         // console.log(note)
@@ -176,7 +176,7 @@ router.post('/savenotes/:version/:book/:chapter/:verse',async (req,res) => {
         console.log('POST: /notes/:version/:book/:chapter/:verse > Error adding new note > ' + err)
     }
 
-    res.send({ note: note});
+    res.send({ note: note });
 })
 module.exports = router
 
@@ -185,7 +185,7 @@ module.exports = router
 
 /* fetchs bible version(s) from ABS */
 function getVersions(versionid) {
-    return new Promise((resolve, reject) => { 
+    return new Promise((resolve, reject) => {
         let url = (versionid == undefined || versionid == '') ? baseApi + config.abs.versionUrl : baseApi + config.abs.versionUrl + '/' + versionid
         console.log(url)
         let fetchOptions = {
@@ -207,18 +207,18 @@ function getVersions(versionid) {
 }
 
 /* fetchs book(s) for a given version from ABS */
-function getBooks(versionid,bookid,withChapters=false) {
+function getBooks(versionid, bookid, withChapters = false) {
     return new Promise((resolve, reject) => {
         if (versionid == undefined || versionid == '') reject('No versionid, no data')
 
-        let allBookUrl = baseApi + config.abs.bookUrl.replace('{versionid}',versionid)
+        let allBookUrl = baseApi + config.abs.bookUrl.replace('{versionid}', versionid)
         let url = (bookid == undefined || bookid == '') ? allBookUrl : allBookUrl + '/' + bookid
         if (withChapters) url += '?include-chapters=true'
         let fetchOptions = {
             url: url,
             sorted: false
         }
-        
+
         fetchData(fetchOptions)
             .then((books) => {
                 console.log('Total ' + books.length + 'books available, the first record below >')
@@ -234,9 +234,9 @@ function getBooks(versionid,bookid,withChapters=false) {
 
 /* fetches all the scripture text for a given chapter */
 function getScriptureText(version, chapter) {
-    return new Promise((resolve,reject) => { 
+    return new Promise((resolve, reject) => {
         if (version == undefined || version == '' || chapter == undefined || chapter == '') reject('Dont know what to fect!')
-        let url = baseApi +  config.abs.chapterTextUrl.replace('{versionid}', version).replace('{chapterid}', chapter)
+        let url = baseApi + config.abs.chapterTextUrl.replace('{versionid}', version).replace('{chapterid}', chapter)
 
         console.log(url)
         let fetchOptions = {
@@ -256,14 +256,14 @@ function getScriptureText(version, chapter) {
             })
             .catch((err) => {
                 reject(err)
-            })        
+            })
     })
 }
 
-/* Calls the ABS API */ 
+/* Calls the ABS API */
 function fetchData(fetchOptions) {
-    return new Promise((resolve, reject) => { 
-        if (fetchOptions == undefined) reject('Missing options!')       
+    return new Promise((resolve, reject) => {
+        if (fetchOptions == undefined) reject('Missing options!')
         if (fetchOptions.url == undefined || fetchOptions.url == '') reject('Missing options!')
 
         let options = {
@@ -291,7 +291,7 @@ function fetchData(fetchOptions) {
                         sortorder = ''
                     } else {
                         sortorder = fetchOptions.sortorder
-                    } 
+                    }
 
                     console.log('SORTKEY -> ' + sortkey)
                     utils.sortJSON(data, sortkey, sortorder)
@@ -309,7 +309,7 @@ function fetchData(fetchOptions) {
             })
             .catch(function (error) {
                 console.log(error);
-            });        
+            });
     })
 }
 

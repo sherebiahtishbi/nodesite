@@ -1,6 +1,7 @@
 $(document).ready(() => {
     $("#ddfilter").on('change', refreshData)
     refreshData()
+    $(".st-lastyear").hide()
 });
 
 /*
@@ -79,9 +80,9 @@ function prepareHtml(year, payments, lastyearpayments, vendors) {
                             tdhtml += payment.comments
                             tdhtml += '">'
                             tdhtml += payment.amount.toFixed(2) + '</a>'
-                            if (showLastyear) {
-                                tdhtml += getLastYearPayment(lastyearpayments, vendor._id, month)
-                            }
+                            // if (showLastyear) {
+                            tdhtml += getLastYearPayment(lastyearpayments, vendor._id, month)
+                            // }
                             tdhtml += '</td>'
                             if (payment.includeintotal) {
                                 totals[month] += payment.amount
@@ -114,6 +115,7 @@ function prepareHtml(year, payments, lastyearpayments, vendors) {
         $("#tblBillpay tbody").html(rowhtml)
         $('#spanPayment').html(formatter.format(grandtotal))
         setPopovers();
+        $(".st-lastyear").hide()
     } catch (e) {
         console.log(e)
     }
@@ -164,9 +166,9 @@ function prepareIncomeHtml(year, incomes, lastyearincomes, incometypes) {
                             tdhtml += income.comments
                             tdhtml += '">'
                             tdhtml += income.amount.toFixed(2) + '</a>'
-                            if (showLastyear) {
-                                tdhtml += getLastYearIncome(lastyearincomes, incometype._id, month)
-                            }
+                            // if (showLastyear) {
+                            tdhtml += getLastYearIncome(lastyearincomes, incometype._id, month)
+                            // }
                             tdhtml += '</td>'
                             totals[month] += income.amount
                             grandtotal += income.amount
@@ -197,6 +199,7 @@ function prepareIncomeHtml(year, incomes, lastyearincomes, incometypes) {
         $("#tblIncome tbody").html(rowhtml)
         $('#spanIncome').html(formatter.format(grandtotal))
         setPopovers();
+        $(".st-lastyear").hide()
     } catch (e) {
         console.log(e)
     }
