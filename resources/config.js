@@ -13,8 +13,10 @@ module.exports = {
         chapterTextUrl: '/bibles/{versionid}/chapters/{chapterid}',
     },
     sermonindex: {
-        baseApi: "https://api.sermonindex.net/audio/speaker/",
-        speakersApi: "https://api.sermonindex.net/audio/speaker/_sermonindex.json"
+        baseApi: "https://api.sermonindex.net/audio",
+        speakersApi: "https://api.sermonindex.net/audio/speaker/_sermonindex.json",
+        topicsApi: "https://api.sermonindex.net/audio/topic/_sermonindex.json",
+        scriptureApi: "https://api.sermonindex.net/audio/scripture/_sermonindex.json"
     },
     months: [
         { monthno: 1, monthname: 'Jan' },

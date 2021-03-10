@@ -64,7 +64,7 @@ router.get('/filter/:date', async (req, res) => {
                 res.render('meditation/meditations', { notes: notes, dates: dates })
             }
             else {
-                let notes = []
+                notes = []
                 res.render('meditation/meditations', { notes: notes, dates: dates })
             }
         })

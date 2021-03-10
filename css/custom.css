@@ -12,6 +12,10 @@ table {
     width: 100%;
 }
 
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(0,0,0,.1);
+}
+
 thead {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -27,6 +31,12 @@ th.st-th-center, td.st-td-center {
 
 th.st-th-right, td.st-td-right {
     text-align: right !important;
+}
+
+.tab-pane {
+    padding: 0 !important;
+    border: 1px solid #dee2e6;
+    border-top: 0;    
 }
 
 .st-td-comment {
@@ -150,6 +160,14 @@ a:hover {
     padding-left: 0px;
     margin-right: 0px;
     margin-left: 0px;    
+}
+
+#divSpeakers .st-table  {
+    margin-top: 0;
+}
+
+#divSpeakers .st-sermons {
+    margin-top: 0;
 }
 
 thead {
@@ -538,8 +556,8 @@ button#btnCloseAuthor {
 
 .st-alphabet-link {
     padding: .35rem .35rem;
-    border: 1px solid rgb(91, 104, 117);
-    border-radius: 50%;
+    /* border: 1px solid rgb(91, 104, 117);
+    border-radius: 50%; */
     background-color: #d9e1e8;
     margin: .25rem .25rem;
     width: 2rem;
@@ -557,9 +575,15 @@ button#btnCloseAuthor {
     display: flex;
 }
 
+#tblSpeakers td, #divTopics td {
+    padding-left: 10px;
+}
+
+
+
 .st-speakerlist {
     flex: 1;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     padding: .5rem;
     border-radius: 5px;
     margin-bottom: 1rem;

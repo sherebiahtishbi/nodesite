@@ -1,0 +1,126 @@
+<%- include('./../trimmedheader.ejs') %>
+    <div class="container">
+        <div class="row col">
+            <div class="st-page-title">
+                <h4><i class="fas fa-music"></i>&nbsp;Sermons</h4>
+            </div>
+        </div>
+        <div id="divAlphabet" class="row col text-center">
+            <input id="hidTab" type="text" hidden>
+            <% for(index=65; index<=90; index++) { %>
+                <a class="st-alphabet-link" href="#">
+                    <!-- <a href="#" class="st-alphabet-link"> -->
+                    <%= String.fromCharCode(index)%>
+                </a>
+                <% } %>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a id="aSpeaker" class="nav-link active" aria-current="page" href="#divSpeakers"
+                    data-toggle="tab">Speakers</a>
+            </li>
+            <li class="nav-item">
+                <a id="aTopic" class="nav-link" href="#divTopics" data-toggle="tab">Topics</a>
+            </li>
+            <li class="nav-item">
+                <a id="aScripture" class="nav-link" href="#divScriptures" data-toggle="tab">Scripture</a>
+            </li>
+        </ul>
+
+        <!-- Tabs -->
+        <div class="tab-content">
+
+            <!-- Speakers tab -->
+            <div id="divSpeakers" class="tab-pane fade show active">
+                <div class="st-speakerlist">
+                    <!-- <h5>Speakers</h5> -->
+                    <div>
+                        <input id="txtSearchSpeaker" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <div>
+                        <% if (speakers !=undefined && speakers.length> 0) { %>
+                            <table id="tblSpeakers">
+                                <tbody>
+                                    <% speakers.forEach(speaker=>{ %>
+                                        <tr class='st-speaker-item'>
+                                            <td data-href="<%= speaker.url %>">
+                                                <!-- <a href="<%= speaker.url %>"><%= speaker.name %></a> -->
+                                                <%= speaker.name %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <div>
+                                    <h4>No Data!</h4>
+                                </div>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topics tab -->
+            <div id="divTopics" class="tab-pane fade">
+                <div class="st-speakerlist">
+                    <!-- <h5>Speakers</h5> -->
+                    <div>
+                        <input id="txtSearchTopic" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <div>
+                        <% if (topics !=undefined && topics.length> 0) { %>
+                            <table id="tblTopics">
+                                <tbody>
+                                    <% topics.forEach(topic=>{ %>
+                                        <tr class='st-speaker-item'>
+                                            <td data-href="<%= topic.url %>">
+                                                <%= topic.name %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <div>
+                                    <h4>No Data!</h4>
+                                </div>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scriptures tab -->
+            <div id="divScriptures" class="tab-pane fade">
+                <div class="st-speakerlist">
+                    <!-- <h5>Speakers</h5> -->
+                    <div>
+                        <input id="txtSearchScripture" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <div>
+                        <% if (scriptures !=undefined && scriptures.length> 0) { %>
+                            <table id="tblScripture">
+                                <tbody>
+                                    <% scriptures.forEach(scripture=>{ %>
+                                        <tr class='st-speaker-item'>
+                                            <td data-href="<%= scripture.url %>">
+                                                <%= scripture.name %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <div>
+                                    <h4>No Data!</h4>
+                                </div>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./../../js/audiolist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+    <%- include('./../footer.ejs') %>
