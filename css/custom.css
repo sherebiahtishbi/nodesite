@@ -150,6 +150,24 @@ a:hover {
     margin-bottom: 1rem;
 }
 
+.st-page-title i {
+    padding: .5rem;
+    /* border: 1px solid grey; */
+    /* border-radius: 3px; */
+    background-color: #507894;  
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;      
+}
+
+.st-page-title h4 {
+    background-color: #abacb9;
+    /* border: 1px solid black; */
+    border-radius: 3px;
+    color: white;
+    padding-right: .5rem    
+}
+
+
 .st-form-top-buttons {
     margin-bottom: 1rem;;
 }
@@ -635,6 +653,11 @@ button#btnCloseAuthor {
 
 .st-sermon-item-description {
     font-size: .75rem;
+}
+
+.st-sermon-item-speaker {
+    /* font-weight: bolder; */
+    font-size: 1rem;
 }
 
 .st-sermon-search {

@@ -1,10 +1,9 @@
 const config = require('./../resources/config')
-const request = require('request')
 const axios = require('axios')
 
 exports.getQuery = async function (date1, date2) {
     return new Promise((resolve, reject) => {
-        let query = {}
+        // let query = {}
         console.log(date1)
 
         try {
@@ -50,7 +49,6 @@ exports.getQuery = async function (date1, date2) {
 
             //This month
             if (date1 == 'thismonth') {
-                let dt1 = new Date()
                 this.getThisMonthDates()
                     .then((dates) => {
                         let daterange = {
@@ -68,7 +66,6 @@ exports.getQuery = async function (date1, date2) {
 
             // Last month
             if (date1 == 'lastmonth') {
-                let dt1 = new Date()
                 this.getLastMonthDates()
                     .then((dates) => {
                         let daterange = {
@@ -205,7 +202,6 @@ exports.getThisYearDates = async function () {
     return new Promise((resolve, reject) => {
         console.log('preparing this year dates')
         let startDate = endDate = new Date()
-        let dt = new Date()
         try {
             startDate = new Date(startDate.getFullYear(), 0, 1)
         } catch (err) {
@@ -266,9 +262,9 @@ exports.updateAccessLog = function (clientip, module) {
                 page: module,
                 client: clientip
             }
-        }).then((res) => {
+        }).then(() => {
             // console.log(res)
-        }).catch((err) => {
+        }).catch(() => {
             // console.log(err)
         })
     } catch (err) {

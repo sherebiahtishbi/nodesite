@@ -28,19 +28,6 @@ router.get('/:letter', (req, res) => {
         })
 })
 
-router.get('/Topics/:letter', (req, res) => {
-    let letter = req.params.letter
-    getSpeakers(letter)
-        .then((speakers) => {
-            // console.log(data)
-            console.log("Will render data now!")
-            res.render('audio/audiosermons', { speakers: speakers })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
-
 router.get('/sermons/:type/:jsonurl', (req, res) => {
     let jsonurl = req.params.jsonurl
     let type = req.params.type
@@ -48,9 +35,8 @@ router.get('/sermons/:type/:jsonurl', (req, res) => {
     console.log('URL > ', url)
     getSermons(url)
         .then((sermons) => {
-            // console.log(sermons.sermons[0])
             console.log("Will render data now!")
-            res.render('audio/sermonlist', { sermons: sermons })
+            res.render('audio/sermonlist', { sermons: sermons, type: type })
         })
         .catch((err) => {
             console.log(err)
@@ -61,9 +47,9 @@ module.exports = router
 
 function getData(letter = 'A') {
     return new Promise((resolve, reject) => {
+        //call all 3 APIs in parallel with multi promise handler to save time
         Promise.all([getSpeakers(letter), getTopics(letter), getScriptures(letter)]).then((data) => {
             console.log('>>> All promises are done')
-            // console.log('Values >\n', values)
             resolve(data)
         }).catch(err => {
             console.log('Error occurred >')

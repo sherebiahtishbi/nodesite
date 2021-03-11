@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $("#txtSearchSpeaker").on('input', filterSpeakers)
+    $("#txtSearchTopic").on('input', filterTopics)
+    $("#txtSearchScripture").on('input', filterScriptures)
     $("#tblSpeakers tbody td").on('click', listSermons)
     $("#tblTopics tbody td").on('click', listSermons)
     $("#tblScripture tbody td").on('click', listSermons)
@@ -12,17 +14,10 @@ function loadData(e) {
     window.location.href = route;
 }
 
-$("#aSpeaker").click(e => {
-    $('#hidTab').text('Speaker')
-})
-
-$("#aTopic").click(e => {
-    $('#hidTab').text('Topic')
-})
-
-$("#aScripture").click(e => {
-    $('#hidTab').text('Scripture')
-})
+//sets the clicked tab as an active tab to a hidden variable to be resued in the routes
+$("#aSpeaker").click(e => { $('#hidTab').text('Speaker') })
+$("#aTopic").click(e => { $('#hidTab').text('Topic') })
+$("#aScripture").click(e => { $('#hidTab').text('Scripture') })
 
 function filterSpeakers(e) {
     let str = $(this).val()
@@ -30,6 +25,21 @@ function filterSpeakers(e) {
         (row.cells[0].innerText.toLowerCase().indexOf(str.toLowerCase()) < 0) ? row.hidden = true : row.hidden = false;
     })
 }
+
+function filterTopics(e) {
+    let str = $(this).val()
+    $("#tblTopics tbody tr").each((index, row) => {
+        (row.cells[0].innerText.toLowerCase().indexOf(str.toLowerCase()) < 0) ? row.hidden = true : row.hidden = false;
+    })
+}
+
+function filterScriptures(e) {
+    let str = $(this).val()
+    $("#tblScripture tbody tr").each((index, row) => {
+        (row.cells[0].innerText.toLowerCase().indexOf(str.toLowerCase()) < 0) ? row.hidden = true : row.hidden = false;
+    })
+}
+
 
 function listSermons(e) {
     e.preventDefault()
