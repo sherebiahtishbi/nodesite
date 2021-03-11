@@ -6,18 +6,60 @@ $(document).ready(function () {
     $("#tblTopics tbody td").on('click', listSermons)
     $("#tblScripture tbody td").on('click', listSermons)
     $("#divAlphabet a").on('click', loadData)
+    setActiveTab()
 })
 
-function loadData(e) {
-    console.log(e)
-    var route = "/audio/" + e.currentTarget.innerText
-    window.location.href = route;
+//sets the clicked tab as an active tab to a hidden variable to be resued in the routes
+$("#aSpeaker").click(e => { $('#hidTab').val('speaker') })
+$("#aTopic").click(e => { $('#hidTab').val('topic') })
+$("#aScripture").click(e => { $('#hidTab').val('scripture') })
+
+function setActiveTab() {
+    var activeTab = $('#hidTab').val()
+    if (activeTab == "") {
+        activeTab = "speaker"
+        $('#hidTab').val(activeTab)
+    }
+    switch (activeTab) {
+        case 'speaker':
+            $("#aSpeaker").addClass('active')
+            $("#aTopic").removeClass('active')
+            $("#aScripture").removeClass('active')
+            $("#divSpeakers").addClass('active show')
+            $("#divTopics").removeClass('active show')
+            $("#divScriptures").removeClass('active show')
+            break;
+        case 'topic':
+            $("#aSpeaker").removeClass('active')
+            $("#aTopic").addClass('active')
+            $("#aScripture").removeClass('active')
+            $("#divSpeakers").removeClass('active show')
+            $("#divTopics").addClass('active show')
+            $("#divScriptures").removeClass('active show')
+            break;
+        case 'scripture':
+            $("#aSpeaker").removeClass('active')
+            $("#aTopic").removeClass('active')
+            $("#aScripture").addClass('active')
+            $("#divSpeakers").removeClass('active show')
+            $("#divTopics").removeClass('active show')
+            $("#divScriptures").addClass('active show')
+            break;
+        default:
+            $("#aSpeaker").addClass('active')
+            $("#aTopic").removeClass('active')
+            $("#aScripture").removeClass('active')
+            $("#divSpeakers").addClass('active show')
+            $("#divTopics").removeClass('active show')
+            $("#divScriptures").removeClass('active show')
+            break;
+    }
 }
 
-//sets the clicked tab as an active tab to a hidden variable to be resued in the routes
-$("#aSpeaker").click(e => { $('#hidTab').text('Speaker') })
-$("#aTopic").click(e => { $('#hidTab').text('Topic') })
-$("#aScripture").click(e => { $('#hidTab').text('Scripture') })
+function loadData(e) {
+    var route = "/audio/" + e.currentTarget.innerText + "/" + $('#hidTab').val()
+    window.location.href = route;
+}
 
 function filterSpeakers(e) {
     let str = $(this).val()
@@ -40,11 +82,9 @@ function filterScriptures(e) {
     })
 }
 
-
 function listSermons(e) {
     e.preventDefault()
-    // let indexFrom = e.target.dataset.href.lastIndexOf('/') + 1
-    let route = '/audio/sermons' + e.target.dataset.href.replace('.json', '')  //.substring(indexFrom)
+    let route = '/audio/sermons' + e.target.dataset.href.replace('.json', '') + "/" + $("#hidAlphabet").val()
     console.log(route)
     window.location.href = route
 }

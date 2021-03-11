@@ -99,10 +99,14 @@ audio {
 }
 
 .st-card {
-    margin-bottom: .2rem;
-    margin-top: .5rem;   
     height: 12rem; 
 }
+
+/* .st-card:nth-of-type(even) {
+    margin-left: 5px;
+    margin-right: 5px;
+} */
+
 
 .st-card-title {
     background-color: #507894;
@@ -148,6 +152,7 @@ a:hover {
 .st-page-title {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    display: flex;
 }
 
 .st-page-title i {
@@ -602,7 +607,7 @@ button#btnCloseAuthor {
 .st-speakerlist {
     flex: 1;
     /* border: 1px solid lightgray; */
-    padding: .5rem;
+    /* padding: .5rem; */
     border-radius: 5px;
     margin-bottom: 1rem;
 }
@@ -622,6 +627,13 @@ button#btnCloseAuthor {
     cursor: pointer;
     background-color: rgb(226, 229, 233);
     color: lightslategray;    
+}
+
+.st-selected-alphabet {
+    background-color: #607d8b;
+    border: 2px solid #00000040;
+    border-radius: 3px;    
+    color: white;
 }
 
 .st-sermonlist {

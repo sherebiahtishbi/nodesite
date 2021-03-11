@@ -6,37 +6,37 @@ const router = express.Router()
 router.get('/', (req, res) => {
     getData()
         .then((data) => {
-            // console.log(data)
-            res.render('audio/audiosermons', { speakers: data[0], topics: data[1], scriptures: data[2] })
-            // res.render('audio/speakerlist', { speakers: speakers })
+            res.render('audio/audiosermons', { speakers: data[0], topics: data[1], scriptures: data[2], activetab: 'speaker', alphabet: 'A' })
         })
         .catch((err) => {
             console.log(err)
         })
 })
 
-router.get('/:letter', (req, res) => {
+router.get('/:letter/:activetab', (req, res) => {
     let letter = req.params.letter
+    let activetab = (req.params.activetab == undefined) ? 'speaker' : req.params.activetab
     getData(letter)
         .then((data) => {
             // console.log(data)
             console.log("Will render data now!")
-            res.render('audio/audiosermons', { speakers: data[0], topics: data[1], scriptures: data[2] })
+            res.render('audio/audiosermons', { speakers: data[0], topics: data[1], scriptures: data[2], activetab: activetab, alphabet: letter })
         })
         .catch((err) => {
             console.log(err)
         })
 })
 
-router.get('/sermons/:type/:jsonurl', (req, res) => {
+router.get('/sermons/:type/:jsonurl/:letter', (req, res) => {
     let jsonurl = req.params.jsonurl
     let type = req.params.type
+    let letter = req.params.letter
     let url = '/' + type + '/' + jsonurl + '.json'
     console.log('URL > ', url)
     getSermons(url)
         .then((sermons) => {
             console.log("Will render data now!")
-            res.render('audio/sermonlist', { sermons: sermons, type: type })
+            res.render('audio/sermonlist', { sermons: sermons, type: type, alphabet: letter })
         })
         .catch((err) => {
             console.log(err)

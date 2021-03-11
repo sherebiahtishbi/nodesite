@@ -6,13 +6,17 @@
             </div>
         </div>
         <div id="divAlphabet" class="row col text-center">
-            <input id="hidTab" type="text" hidden>
-            <% for(index=65; index<=90; index++) { %>
-                <a class="st-alphabet-link" href="#">
-                    <!-- <a href="#" class="st-alphabet-link"> -->
+            <input id="hidTab" type="hidden" value="<%=activetab%>">
+            <input id="hidAlphabet" type="hidden" value="<%=alphabet%>">
+            <% for(index=65; index<=90; index++) { if (String.fromCharCode(index)==alphabet){%>
+                <a class="st-alphabet-link st-selected-alphabet" href="#">
                     <%= String.fromCharCode(index)%>
                 </a>
-                <% } %>
+                <%} else { %>
+                    <a class="st-alphabet-link" href="#">
+                        <%= String.fromCharCode(index)%>
+                    </a>
+                    <% }} %>
         </div>
         <ul class="nav nav-tabs">
             <li class="nav-item">

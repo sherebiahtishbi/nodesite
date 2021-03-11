@@ -6,7 +6,7 @@
             </div>
             <!-- TODO need to correct the back button -->
             <div class="st-page-top-buttons">
-                <a href="/audio/<%=sermons.name.substring(0,1)%>" role="button" class="btn st-btn-primary">Back
+                <a id="aBackToSpeakers" href="<%=alphabet%>/<%=type%>" role="button" class="btn st-btn-primary">Back
                     to <%=type.substring(0, 1).toUpperCase() + type.substring(1) + 's' %></a>
             </div>
         </div>
@@ -54,10 +54,7 @@
                             <% } %>
                 </div>
             </div>
-            <!-- <div class="st-sermonlist">
-            <h5>Sermons</h5>
-        </div> -->
         </div>
     </div>
-    <script src="./../../js/sermonlist.js"></script>
+    <script src="/js/sermonlist.js"></script>
     <%- include('./../footer.ejs') %>

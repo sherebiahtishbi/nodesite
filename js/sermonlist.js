@@ -1,5 +1,12 @@
-$(document).ready(function () { 
-    $("#txtSearch").on('input',applySearch)
+$(document).ready(function () {
+    $("#txtSearch").on('input', applySearch)
+})
+
+$("#aBackToSpeakers").click(e => {
+    e.preventDefault()
+    var params = e.currentTarget.href.split('/')
+    var route = "/audio/" + params[7] + "/" + params[8]
+    window.location.href = route
 })
 
 function applySearch() {
