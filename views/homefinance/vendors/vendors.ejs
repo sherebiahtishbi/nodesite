@@ -23,7 +23,9 @@
                     <th width="5%" class="st-th-center"><i class=" fas fa-trash-alt"></i></th>
                     <th width="5%" class="st-th-center">Display Order</th>
                     <th width="40%">
-                        <div>Vendor Name</div>
+                        <div>
+                            Vendor Name
+                        </div>
                         <div>
                             <small>Click on vendor name to edit its details.</small>
                         </div>
@@ -44,6 +46,12 @@
                             <td>
                                 <a href="/finance/vendor/edit/<%=vendor.id%>">
                                     <%= vendor.vendorname %>
+                                        <% if (vendor.isCreditCard) {%>
+                                            <small>
+                                                <span class="st-icon-marker">&nbsp;&nbsp;<i
+                                                        class="far fa-credit-card"></i></span>
+                                            </small>
+                                            <%}%>
                                 </a>
                             </td>
                             <td>

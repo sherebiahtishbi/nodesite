@@ -12,7 +12,7 @@ table {
     width: 100%;
 }
 
-.table-striped tbody tr:nth-of-type(even) {
+#tblSermons tbody tr:nth-of-type(even) {
     background-color: rgba(0,0,0,.1);
 }
 
@@ -149,6 +149,10 @@ a:hover {
     text-decoration: none;
 }
 
+.st-icon-marker {
+    color: #bba3a3;
+}
+
 .st-page-title {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -171,6 +175,7 @@ a:hover {
     color: white;
     padding-right: .5rem    
 }
+
 
 
 .st-form-top-buttons {
@@ -912,6 +917,15 @@ button#btnCloseAuthor {
 .st-totals {
     margin-top: 1rem;
     /* padding-right: 1rem; */
+}
+
+.st-cc-total {
+    border: 1px solid black;
+    color: #cc6161;
+}
+
+.st-cc-row-highlight {
+    color: #cc6161;    
 }
 
 .st-income {

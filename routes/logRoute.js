@@ -95,23 +95,24 @@ router.get('/sort/:key/:order', async (req, res) => {
 
 
 router.post('/save', async (req, res) => {
-    console.log('Saving log entry')
-    let accesslog = new accessLog()
-    console.log(req.body)
-    accesslog.page = req.body.page
-    accesslog.client = config.usermap[req.body.client]
+    console.log("Logging disabled temporarily!")
+    // console.log('Saving log entry')
+    // let accesslog = new accessLog()
+    // console.log(req.body)
+    // accesslog.page = req.body.page
+    // accesslog.client = config.usermap[req.body.client]
 
-    console.log(accesslog)
+    // console.log(accesslog)
 
-    try {
-        console.log('Now saving')
-        console.log(accesslog)
+    // try {
+    //     console.log('Now saving')
+    //     console.log(accesslog)
 
-        accesslog = await accesslog.save()
-        console.log('Log saved successfully')
-    } catch (err) {
-        console.log(err)
-    }
+    //     accesslog = await accesslog.save()
+    //     console.log('Log saved successfully')
+    // } catch (err) {
+    //     console.log(err)
+    // }
 })
 
 module.exports = router

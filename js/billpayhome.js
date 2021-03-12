@@ -4,6 +4,25 @@ $(document).ready(() => {
     $(".st-lastyear").hide()
 });
 
+$("#chkShowlastyear").on('change', (e) => {
+    e.currentTarget.checked ? $(".st-lastyear").show() : $(".st-lastyear").hide()
+})
+
+$("#chkShowCC").on('change', (e) => {
+    if (e.currentTarget.checked) {
+        $(".st-cc-row").each((index, e) => {
+            e.classList.add('st-cc-row-highlight')
+            // console.log(e)
+        })
+        $(".st-cc-total").show()
+    } else {
+        $(".st-cc-row").each((index, e) => {
+            e.classList.remove('st-cc-row-highlight')
+        })
+        $(".st-cc-total").hide()
+    }
+})
+
 /*
  Function to refresh data 
  Calls below functions 
@@ -15,11 +34,17 @@ function refreshData(e) {
     // year = (year == 'Current') ? new Date().getFullYear() : $(this).val()
     // year = '2020'
     console.log(year)
+
     let route = '/finance/billpay/billpaydata/' + $("#ddfilter").val()
     $.getJSON(route).done((data) => {
         console.log(data)
         if (data.payments.length > 0) {
             prepareHtml(year, data.payments, data.lastyearpayments, data.vendors)
+            if ($("#chkShowCC").is(':checked')) {
+                $(".st-cc-total").show()
+            } else {
+                $(".st-cc-total").hide()
+            }
         } else {
             //TODO show empty table even when data doesn't exist
             $("#tblBillpay tbody").html("<h4>No Payment Data to Show</h4>")
@@ -43,23 +68,40 @@ function refreshData(e) {
 
 }
 
-$("#chkShowlastyear").on('change', (e) => {
-    e.currentTarget.checked ? $(".st-lastyear").show() : $(".st-lastyear").hide()
-})
 
 //prepares HTML table for all bill payments
 function prepareHtml(year, payments, lastyearpayments, vendors) {
     try {
         var rowhtml = '', tdhtml = '', rowtotal = ''
         var totals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        var ccTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         var grandtotal = 0
         var showLastyear = $("#chkShowlastyear").is(':checked')
+        var vendorIndex = 0
+        var ccTotalShown = false
+        var ccChecked = $("#chkShowCC").is(':checked')
         vendors.forEach((vendor) => {
-            rowhtml += '<tr><td>'
+            console.log('Vendor (CreditCard?)> ', vendor.isCreditCard)
+            if (vendorIndex > 0 && !vendor.isCreditCard && !ccTotalShown) {
+                rowhtml += "<tr class='st-cc-total'><td><b>CC Total ($)</b><small><span class='st-icon-marker'>&nbsp;&nbsp;<i class='far fa-credit-card'></i></span></small></td>"
+                for (i = 0; i < 12; i++) {
+                    rowhtml += "<td class='st-td-right'><b>" + ccTotal[i].toFixed(2) + "</b></td>"
+                }
+                rowhtml += "</tr>"
+                ccTotalShown = true
+            }
+            if (vendor.isCreditCard) {
+                rowhtml += (ccChecked) ? '<tr class="st-cc-row st-cc-row-highlight"><td>' : '<tr class="st-cc-row"><td>'
+            } else {
+                rowhtml += '<tr><td>'
+            }
+
             rowhtml += '<a href="/finance/vendor/edit/' + vendor._id + '" '
             rowhtml += 'data-container="body" data-toggle="popover" data-content="'
             rowhtml += vendor.comments
-            rowhtml += '">' + vendor.vendorname + '</a></td>'
+            rowhtml += '">' + vendor.vendorname
+            rowhtml += (vendor.isCreditCard) ? '<small><span class="st-icon-marker">&nbsp;&nbsp;<i class="far fa-credit-card"></i></span></small>' : ''
+            rowhtml += '</a></td>'
             for (month = 0; month < 12; month++) {
                 tdhtml = ''
                 montotal = 0
@@ -88,6 +130,9 @@ function prepareHtml(year, payments, lastyearpayments, vendors) {
                                 totals[month] += payment.amount
                                 grandtotal += payment.amount
                             }
+                            if (vendor.isCreditCard) {
+                                ccTotal[month] += payment.amount
+                            }
                         } else {
                             tdhtml += '<td class="st-td-right">'
                             tdhtml += '<a href="/finance/billpay/add/' + vendor._id + '|' + payment.payyear + '|' + (month + 1) + '">-</a></td >'
@@ -104,6 +149,7 @@ function prepareHtml(year, payments, lastyearpayments, vendors) {
                 rowhtml += tdhtml
             }
             rowhtml += '</tr>'
+            if (vendor.isCreditCard) { vendorIndex++ }
         })
 
         rowhtml += "<tr class='st-footer-payment'><td><b>Total Expenses</b></td>"
@@ -116,6 +162,7 @@ function prepareHtml(year, payments, lastyearpayments, vendors) {
         $('#spanPayment').html(formatter.format(grandtotal))
         setPopovers();
         $(".st-lastyear").hide()
+        $(".st-cc-total").hide()
     } catch (e) {
         console.log(e)
     }

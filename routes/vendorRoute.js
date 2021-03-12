@@ -62,6 +62,7 @@ function SaveVendor(req, vendor) {
         _vendor.displayorder = req.body.displayorder
         _vendor.comments = req.body.comments
         _vendor.trackinbillpay = (req.body.trackinbillpay) ? true : false
+        _vendor.isCreditCard = (req.body.creditcard) ? true : false
         console.log(_vendor)
         try {
             _vendor = await _vendor.save()

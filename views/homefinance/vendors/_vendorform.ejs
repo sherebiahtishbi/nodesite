@@ -14,6 +14,16 @@
     </div>
 </div>
 <div class="form-group">
+    <div id="divCheckCC" class="form-check">
+        <% if (vendor.isCreditCard==true) { %>
+            <input type="checkbox" name="creditcard" class="form-check-input" checked>
+            <%} else {%>
+                <input type="checkbox" name="creditcard" class="form-check-input">
+                <%}%>
+                    <label for="creditcard" class="form-check-label">This is Credit Card</label>
+    </div>
+</div>
+<div class="form-group">
     <label for="displayorder">Display Order</label>
     <input type="text" name="displayorder" class="form-control" placeholder="Display order"
         value="<%= vendor.displayorder %>">

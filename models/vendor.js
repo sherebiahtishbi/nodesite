@@ -15,6 +15,10 @@ const vendorSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    isCreditCard: {
+        type: Boolean,
+        default: false
+    },
     creatDate: {
         type: Date,
         default: Date.now

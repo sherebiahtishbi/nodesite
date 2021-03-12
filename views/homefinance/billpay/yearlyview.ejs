@@ -39,21 +39,12 @@
                                     </option>
                                     <%}%>
                                         <% }) %>
-                                            <!-- <option selected>Current</option>
-                        <option>2020</option>
-                        <option>2019</option>
-                        <option>2018</option>
-                        <option>2017</option>
-                        <option>2016</option>
-                        <option>2015</option> -->
                     </select>
                 </div>
-                <div id="divSearch" class="form-group">
-                    <!-- <label for="search">Search</label> -->
+                <!-- <div id="divSearch" class="form-group">
                     <input type="text" id="txtSearch" class="form-control" placeholder="Search">
-                </div>
+                </div> -->
                 <div id="divHighlight" class="form-group">
-                    <!-- <label for="search">Highlight Amount</label> -->
                     <input type="text" id="txtThreshold" class="form-control" placeholder="Amount to Highlight">
                 </div>
                 <div class="form-group">
@@ -62,11 +53,12 @@
                         <label for="showlastyear" class="form-check-label">Show last year data</label>
                     </div>
                 </div>
-                <!-- <div id="divBtnFilter" class="form-group">
-                    <button id="btnFilter" class="btn st-btn-primary form-control">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div> -->
+                <div class="form-group">
+                    <div id="divCreditCardCheck" class="form-check" style="margin-left: 1rem;">
+                        <input type="checkbox" id="chkShowCC" name="showcc" class="form-check-input">
+                        <label for="showcc" class="form-check-label">Show Credit Card Total</label>
+                    </div>
+                </div>
             </div>
             <div class="form-group st-totals">
                 <div class="st-income">
@@ -102,21 +94,6 @@
         </div>
         <div class="row col st-table">
             <table id="tblIncome" class="table table-striped">
-                <!-- <thead>
-                    <th width="10%">Income Type</th>
-                    <th width="5%" class="st-th-right">Jan</th>
-                    <th width="5%" class="st-th-right">Feb</th>
-                    <th width="5%" class="st-th-right">Mar</th>
-                    <th width="5%" class="st-th-right">Apr</th>
-                    <th width="5%" class="st-th-right">May</th>
-                    <th width="5%" class="st-th-right">Jun</th>
-                    <th width="5%" class="st-th-right">Jul</th>
-                    <th width="5%" class="st-th-right">Aug</th>
-                    <th width="5%" class="st-th-right">Sep</th>
-                    <th width="5%" class="st-th-right">Oct</th>
-                    <th width="5%" class="st-th-right">Nov</th>
-                    <th width="5%" class="st-th-right">Dec</th>
-                </thead> -->
                 <tbody>
                 </tbody>
             </table>

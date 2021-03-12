@@ -48,8 +48,7 @@
                                     <% speakers.forEach(speaker=>{ %>
                                         <tr class='st-speaker-item'>
                                             <td data-href="<%= speaker.url %>">
-                                                <!-- <a href="<%= speaker.url %>"><%= speaker.name %></a> -->
-                                                <%= speaker.name %>
+                                                <i class="fas fa-user"></i>&nbsp;&nbsp;<%= speaker.name %>
                                             </td>
                                         </tr>
                                         <% }) %>
@@ -78,7 +77,7 @@
                                     <% topics.forEach(topic=>{ %>
                                         <tr class='st-speaker-item'>
                                             <td data-href="<%= topic.url %>">
-                                                <%= topic.name %>
+                                                <i class="fas fa-file-alt"></i>&nbsp;&nbsp;<%= topic.name %>
                                             </td>
                                         </tr>
                                         <% }) %>
@@ -107,7 +106,7 @@
                                     <% scriptures.forEach(scripture=>{ %>
                                         <tr class='st-speaker-item'>
                                             <td data-href="<%= scripture.url %>">
-                                                <%= scripture.name %>
+                                                <i class="fas fa-book"></i>&nbsp;&nbsp;<%= scripture.name %>
                                             </td>
                                         </tr>
                                         <% }) %>
